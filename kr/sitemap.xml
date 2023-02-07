@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmin11.github.io/kr/page/about/</loc>
+    <loc>https://nmin11.github.io/kr/about/</loc>
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/page/about/"
+                href="https://nmin11.github.io/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/page/about/"
+                href="https://nmin11.github.io/kr/about/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/blog/</loc>
@@ -26,19 +26,6 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/blog/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/page/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/page/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/</loc>
@@ -67,17 +54,17 @@
                 href="https://nmin11.github.io/kr/tags/test/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/test/</loc>
+    <loc>https://nmin11.github.io/kr/blog/1/</loc>
     <lastmod>2023-02-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/blog/test/"
+                href="https://nmin11.github.io/en/blog/1/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/test/"
+                href="https://nmin11.github.io/kr/blog/1/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
