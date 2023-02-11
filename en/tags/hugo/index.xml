@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lokoding</title>
-    <link>https://nmin11.github.io/en/</link>
-    <description>Recent content on Lokoding</description>
+    <title>hugo on Lokoding</title>
+    <link>https://nmin11.github.io/en/tags/hugo/</link>
+    <description>Recent content in hugo on Lokoding</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Make tech blog with Github Pages</title>
       <link>https://nmin11.github.io/en/blog/1/</link>
@@ -17,15 +17,6 @@ It is widely used not only for blogs but also for resumes, portfolios, official 
 (Especially, many developer create portfolio with Github Pages.)
 I also chose Github Pages because I wanted to create a new tech blog!
 Github Pages 1. Why Hugo?</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://nmin11.github.io/en/about/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmin11.github.io/en/about/</guid>
-      <description>Hello! I&amp;rsquo;m Loko who work as backend developer.</description>
     </item>
     
   </channel>

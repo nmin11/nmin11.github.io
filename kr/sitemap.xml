@@ -17,6 +17,16 @@
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/github/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/github/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/github/"
+                />
   </url><url>
     <loc>https://nmin11.github.io/kr/blog/1/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
@@ -33,6 +43,16 @@
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/hugo/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/hugo/"
+                />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
@@ -49,6 +69,16 @@
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/tech/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/tech/"
+                />
   </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>

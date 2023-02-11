@@ -5,14 +5,18 @@
     <link>https://nmin11.github.io/en/blog/</link>
     <description>Recent content in Blogs on Lokoding</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
+      <title>Make tech blog with Github Pages</title>
       <link>https://nmin11.github.io/en/blog/1/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://nmin11.github.io/en/blog/1/</guid>
-      <description>Hello World!</description>
+      <description>0. What is Github Pages? Github Pages is a useful tool that allows us to create our own website for free without a server or DB.
+It is widely used not only for blogs but also for resumes, portfolios, official documents, galleries, and archives.
+(Especially, many developer create portfolio with Github Pages.)
+I also chose Github Pages because I wanted to create a new tech blog!
+Github Pages 1. Why Hugo?</description>
     </item>
     
   </channel>
