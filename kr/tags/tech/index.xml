@@ -8,10 +8,10 @@
     <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Pages로 만드는 나만의 기술 블로그</title>
-      <link>https://nmin11.github.io/kr/blog/1/</link>
+      <link>https://nmin11.github.io/kr/blog/make-tech-blog-with-github-pages/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/1/</guid>
+      <guid>https://nmin11.github.io/kr/blog/make-tech-blog-with-github-pages/</guid>
       <description>0. Github Pages란? Github Pages는 서버나 DB 없이, 나만의 웹 페이지를 &amp;lsquo;무료&amp;rsquo;로 제작해서 가질 수 있게 해주는 유용한 도구이다.
 블로그 뿐만이 아니라 이력서, 포트폴리오, 공식 문서, 갤러리, 아카이브 용도로도 많이 사용되고 있다.
 (특히 포트폴리오 용도로 제작하는 분들이 꽤 많은 것 같다.)
