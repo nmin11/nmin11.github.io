@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmin11.github.io/kr/about/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/about/"
-                />
-  </url><url>
     <loc>https://nmin11.github.io/kr/blog/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,34 +15,11 @@
                 href="https://nmin11.github.io/kr/blog/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/tags/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/tags/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/tags/test/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/tags/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/tags/test/"
-                />
+    <loc>https://nmin11.github.io/kr/tags/github/</loc>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmin11.github.io/kr/blog/1/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -67,8 +31,27 @@
                 href="https://nmin11.github.io/kr/blog/1/"
                 />
   </url><url>
+    <loc>https://nmin11.github.io/kr/tags/hugo/</loc>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tags/</loc>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tags/tech/</loc>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -78,6 +61,19 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/about/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/about/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/categories/</loc>

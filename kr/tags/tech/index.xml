@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on 로코딩</title>
-    <link>https://nmin11.github.io/kr/blog/</link>
-    <description>Recent content in Blogs on 로코딩</description>
+    <title>tech on 로코딩</title>
+    <link>https://nmin11.github.io/kr/tags/tech/</link>
+    <description>Recent content in tech on 로코딩</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Pages로 만드는 나만의 기술 블로그</title>
       <link>https://nmin11.github.io/kr/blog/1/</link>

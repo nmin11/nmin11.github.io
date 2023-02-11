@@ -5,7 +5,20 @@
     <link>https://nmin11.github.io/kr/</link>
     <description>Recent content on 로코딩</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Pages로 만드는 나만의 기술 블로그</title>
+      <link>https://nmin11.github.io/kr/blog/1/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/kr/blog/1/</guid>
+      <description>0. Github Pages란? Github Pages는 서버나 DB 없이, 나만의 웹 페이지를 &amp;lsquo;무료&amp;rsquo;로 제작해서 가질 수 있게 해주는 유용한 도구이다.
+블로그 뿐만이 아니라 이력서, 포트폴리오, 공식 문서, 갤러리, 아카이브 용도로도 많이 사용되고 있다.
+(특히 포트폴리오 용도로 제작하는 분들이 꽤 많은 것 같다.)
+필자 또한 새로운 기술 블로그를 만들고 싶어서 Github Pages를 선택하게 되었다!
+Github Pages 1. Hugo를 선택한 이유 Github Pages를 제작하기 위해서, 정적 웹사이트를 생성해주는 Static Site Generator라는 것을 사용해야 한다.</description>
+    </item>
+    
     <item>
       <title>About Me</title>
       <link>https://nmin11.github.io/kr/about/</link>
@@ -13,15 +26,6 @@
       
       <guid>https://nmin11.github.io/kr/about/</guid>
       <description>안녕하세요! 백엔드 개발자 남궁민입니다.</description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://nmin11.github.io/kr/blog/1/</link>
-      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmin11.github.io/kr/blog/1/</guid>
-      <description>안녕 세상아!</description>
     </item>
     
   </channel>
