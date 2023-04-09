@@ -19,5 +19,19 @@
 Github Pages 1. Hugo를 선택한 이유 Github Pages를 제작하기 위해서, 정적 웹사이트를 생성해주는 Static Site Generator라는 것을 사용해야 한다.</description>
     </item>
     
+    <item>
+      <title>About Me</title>
+      <link>https://nmin11.github.io/kr/about/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/kr/about/</guid>
+      <description>남궁민 Email: nmin1124@gmail.com
+Github: https://github.com/nmin11
+Blog: https://loko1124.tistory.com
+👯 &amp;lsquo;동료와 함께 성장하는 개발자&amp;rsquo; 남궁민입니다. Introduce 안녕하세요! 올바른 의사소통 및 협업 문화를 통해 동료들과 함께 건강하게 성장하는 것을 최우선적으로 지향하는 개발자 남궁민입니다.
+저는 2022년 8월부터 주니어 개발자로서의 경력을 시작했습니다. 회사에서 AWS 클라우드 서비스 활용 기술을 익히는 데에 집중하고 있으며, Go 언어를 활용해서 개발하고 있습니다. 향후에는 백엔드 개발자로서의 역량 증진을 위해 Kotlin과 Spring 기술을 깊게 탐구할 것입니다.
+주니어 개발자에게 가장 필요한 역량은 본인이 무엇을 할 줄 알고, 또 무엇을 할 줄 모르는지 스스로 판단할 줄 아는 메타인지 능력이라고 생각합니다.</description>
+    </item>
+    
   </channel>
 </rss>
