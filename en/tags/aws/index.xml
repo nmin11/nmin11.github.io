@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws on Loko</title>
+    <link>https://nmin11.github.io/en/tags/aws/</link>
+    <description>Recent content in aws on Loko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysterious S3 Access Denied Error</title>
+      <link>https://nmin11.github.io/en/blog/s3-access-denied-error/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/en/blog/s3-access-denied-error/</guid>
+      <description>How I discovered the error I actually encountered the same error twice.
+Neither error occurred in the course of work, but both occurred on the side projects that I had implemented a feature to test work-related functionality.
+What I implemented was a Lambda function that triggered by S3 object created event.
+These Lambda functions had a common logic: get the object&amp;rsquo;s key name from the received event, and look up the object information again via that key name.</description>
+    </item>
+    
+  </channel>
+</rss>

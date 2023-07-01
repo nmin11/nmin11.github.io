@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="kr" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="icon" href="/favicon.svg">
 
   <title>
-  로코
+  Mysterious S3 Access Denied Error - Loko
   </title>
-  <meta name="description" content="" /><meta name="generator" content="Hugo 0.110.0"><link
+  <meta name="description" content="Access Denied error occurred while trying to retrieve a triggered object" />
+  <meta name="author" content="Loko" />
+  <meta name="generator" content="Hugo 0.110.0"><link
     rel="stylesheet"
     href="https://nmin11.github.io/css/styles.min.eb7fe02195897f2fd20b6dcb5f80cda854ce0b58dcf3a28f1d23166a1eaaded4.css"
     integrity="sha256-63/gIZWJfy/SC23LX4DNqFTOC1jc86KPHSMWah6q3tQ="
@@ -16,28 +18,31 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" href="https://nmin11.github.io/kr/index.xml" title="로코" />
-  <link rel="alternate" type="application/json" href="https://nmin11.github.io/kr/index.json" title="로코" />
-  <meta property="og:title" content="로코" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://nmin11.github.io/kr/" /><meta property="og:site_name" content="로코" />
+  <meta property="og:title" content="Mysterious S3 Access Denied Error" />
+<meta property="og:description" content="Access Denied error occurred while trying to retrieve a triggered object" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nmin11.github.io/en/blog/s3-access-denied-error/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-01T00:00:00+00:00" /><meta property="og:site_name" content="Loko" />
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="로코"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Mysterious S3 Access Denied Error"/>
+<meta name="twitter:description" content="Access Denied error occurred while trying to retrieve a triggered object"/>
 
-  <meta itemprop="name" content="로코">
-<meta itemprop="description" content="">
+  <meta itemprop="name" content="Mysterious S3 Access Denied Error">
+<meta itemprop="description" content="Access Denied error occurred while trying to retrieve a triggered object"><meta itemprop="datePublished" content="2023-07-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="471">
+<meta itemprop="keywords" content="aws,go,troubleshooting," />
 
   
-  <meta name="lang" content="kr" />
+  <meta name="lang" content="en" />
   
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://nmin11.github.io/kr/" class="capitalize font-extrabold text-2xl">
+  <a href="https://nmin11.github.io/en/" class="capitalize font-extrabold text-2xl">
     
-    <img src="/loko-logo.png" alt="로코" class="h-8 max-w-full" />
+    <img src="/loko-logo.png" alt="Loko" class="h-8 max-w-full" />
     
   </a>
   <button class="mobile-menu-button md:hidden">
@@ -50,18 +55,16 @@
   <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
 
     
-    <li><a href="/kr/blog">블로그</a></li>
+    <li><a href="/en/blog">Blog</a></li>
     
-    <li><a href="/kr/about">소개</a></li>
+    <li><a href="/en/about">About</a></li>
     
-    <li><a href="/kr/tags">태그</a></li>
+    <li><a href="/en/tags">Tags</a></li>
     
 
     
     
     <li class="flex items-center">
-      
-      
       
       
       <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
@@ -73,7 +76,9 @@
         <path d="M11.5 3a17 17 0 0 0 0 18" />
         <path d="M12.5 3a17 17 0 0 1 0 18" />
       </svg>
-      <a href="/en" lang="en">English</a>
+      <a href="/kr" lang="kr">Korean</a>
+      
+      
       
       
     </li>
@@ -114,26 +119,18 @@
     
   </ul>
 </header>
-<main class="flex-1"><section class="bg-blue-100 dark:bg-gray-900">
-  <div class="container max-w-screen-lg mx-auto px-6 py-12 grid md:grid-cols-2 gap-4 lg:gap-16 items-center">
-    <div>
-      <h1 class="text-4xl font-bold mb-4">안녕하세요! 소프트웨어 개발자 남궁민입니다 👋</h1>
-      <p class="font-light text-lg">주니어 백엔드 개발자로 일하고 있으며, AWS 기술 및 Kotlin/Spring 기술에 관심이 많습니다 😁</p>
-    </div>
-    <img class="rounded-lg shadow-sm" src="/avatar.jpg" alt="로코" />
-  </div>
-</section>
-  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-    <div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/s3-access-denied-error/">
+<main class="flex-1">
   
-  <div class="relative">
-    <img src="https://github.com/nmin11/blog/assets/75058239/2feabb65-8177-4614-89be-a7c66fd50034" alt="의문의 S3 Access Denied 에러" class="rounded-lg shadow-sm w-full h-52 object-cover" />
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="https://github.com/nmin11/blog/assets/75058239/2feabb65-8177-4614-89be-a7c66fd50034" class="rounded-lg shadow-sm w-full object-contain" />
     
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
+    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
       
   
-    Jul 1, 23
+    July 1, 2023
   
 
 
@@ -141,43 +138,151 @@
     
   </div>
   
-  <div class="my-2 text-xl font-semibold">의문의 S3 Access Denied 에러</div>
-  <div>트리거된 객체를 조회하는 과정에서 발생한 Access Denied 에러</div>
-</a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/s3-access-denied-error/" lang="en">English</a>
-    </div>
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
 
-</div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/make-tech-blog-with-github-pages/">
-  
-  <div class="relative">
-    <img src="https://user-images.githubusercontent.com/75058239/218248198-861c23ad-9eed-4240-90f3-445878f794f2.png" alt="Github Pages로 만드는 나만의 기술 블로그" class="rounded-lg shadow-sm w-full h-52 object-cover" />
+    <h1 class="text-2xl font-bold mb-2">Mysterious S3 Access Denied Error</h1>
     
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
+    <h5 class="text-sm flex items-center flex-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      Posted on 
+  
+    July 1, 2023
+  
+
+
       
-  
-    Feb 11, 23
-  
-
-
-    </div>
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      3&nbsp;minutes
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      471&nbsp;words
+      
+        &nbsp;&bull;&nbsp;Other languages: &nbsp;<a href="https://nmin11.github.io/kr/blog/s3-access-denied-error/" lang="kr">Korean</a>
+      
+    </h5>
     
-  </div>
+
+    <details id="TableOfContents" class="px-4 mt-4 bg-gray-100 dark:bg-gray-700 rounded toc">
+    <summary class="flex items-center font-bold py-2 px-4 cursor-pointer justify-between select-none text-black dark:text-white">
+      <span>Table of contents</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <polyline points="6 9 12 15 18 9"></polyline>
+     </svg>
+    </summary>
+
+    <ul class="mt-2 pb-4">
+        
+
+        
+        <li>
+        <a href="#how-i-discovered-the-error">How I discovered the error</a>
+        
+
+        
+        </li><li>
+        <a href="#what-was-the-problem">What was the problem</a>
+        
+
+        
+        </li><li>
+        <a href="#how-to-solve">How to solve</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#source-code-used-for-demonstration">Source code used for demonstration</a>
+        </li></ul>
+    </li></ul>
+  </details>
+
+    <h2 id="how-i-discovered-the-error">How I discovered the error</h2>
+<p>I actually encountered the same error twice.<br>
+Neither error occurred in the course of work, but both occurred on the side projects that I had implemented a feature to test work-related functionality.<br>
+What I implemented was a <strong>Lambda function that triggered by S3 object created event.</strong><br>
+These Lambda functions had a common logic: <strong>get the object&rsquo;s key name from the received event, and look up the object information again via that key name.</strong><br>
+However, my Lambda functions returned an Access Denied error.<br>
+Even though my lambda functions had enough permission to run <code>GetObject</code> from that bucket!</p>
+<img width="669" alt="aws s3 access denied" src="https://github.com/nmin11/blog/assets/75058239/2ebb354e-dab6-4e92-b4da-916d729dbef6">
+<h2 id="what-was-the-problem">What was the problem</h2>
+<p>This is because the key name contains values such as <strong>Korean, special characters, or spaces.</strong><br>
+In such cases, the value of <code>Record.S3.Object.Key</code> received through the event was URL encoded.<br>
+I mentioned earlier that I experienced the same problem twice, once because the name was Korean, and once because it contained special characters 😓</p>
+<img width="853" alt="url encoded key name" src="https://github.com/nmin11/blog/assets/75058239/e76bcbaf-7e9e-48fe-8ae2-1db58bf9a20c">
+<p>My guess is that this is because the object itself is in URL format.</p>
+<img width="618" alt="object url" src="https://github.com/nmin11/blog/assets/75058239/a26d5a94-4b88-4173-8566-9d49ec97378b">
+<p>Using the Object URL above, I tried to get the object information directly through the AWS SDK in my local code.</p>
+<script src="https://gist.github.com/nmin11/95c04703578e7099ec91091aac088b12.js"></script>
+<p>Then I got this error.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Failed to retrieve object: NoSuchKey: The specified key does not exist.
+</span></span></code></pre></div><p>Not surprisingly, but one thing was different.<br>
+In my local code, it returned the correct error that the object for that key did not exist,<br>
+But my Lambda function returned Access Denied error.<br>
+Again, my Lambda has a permission to run <code>GetObject</code> on that Bucket, even if there&rsquo;s no such key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Version&#34;</span>: <span style="color:#f1fa8c">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Sid&#34;</span>: <span style="color:#f1fa8c">&#34;VisualEditor0&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Action&#34;</span>: [<span style="color:#f1fa8c">&#34;s3:GetObject&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Resource&#34;</span>: <span style="color:#f1fa8c">&#34;arn:aws:s3:::nmin-access-test/*&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I suspect this is caused by AWS not properly branching for errors that can occur when a Lambda accesses S3.<br>
+Because of this incorrect way of branching the error, I actually wasted about a week of my time trying to solve the problem by searching for &ldquo;S3 Access Denied&rdquo; related keywords.<br>
+<em>So, despite the fact that it&rsquo;s a simple problem, I thought I&rsquo;d publish this post.</em></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>If a Lambda function needs to look up information about an object received through an event again,<br>
+it needs to parse the key name from the event as a URL-formatted string back to the original string.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>decodedObject, err <span style="color:#ff79c6">:=</span> url.<span style="color:#50fa7b">PathUnescape</span>(object)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+</span></span><span style="display:flex;"><span>  fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Error occurred while decoding URL: &#34;</span>, err)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>decodedObject = strings.<span style="color:#50fa7b">Replace</span>(decodedObject, <span style="color:#f1fa8c">&#34;+&#34;</span>, <span style="color:#f1fa8c">&#34; &#34;</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span></code></pre></div><p>In Go, there&rsquo;s a built-in module called <code>url.PathUnescape</code> that I used.<br>
+However, that function doesn&rsquo;t handle empty space value(<code> </code>) being URL-encoded with special character(<code>+</code>), so I had to use the <code>strings.Replace</code> function in addition.<br>
+And finally, I was able to retrieve the object successfully even if I received a key name with Korean characters, special characters, or empty spaces.</p>
+<h3 id="source-code-used-for-demonstration">Source code used for demonstration</h3>
+<script src="https://gist.github.com/nmin11/26204a27da20909f5c18fc851b835dcc.js"></script>
+
+  </article>
+<div class="px-2 mb-2">
   
-  <div class="my-2 text-xl font-semibold">Github Pages로 만드는 나만의 기술 블로그</div>
-  <div>Hugo &#43; Github Pages</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/make-tech-blog-with-github-pages/" lang="en">English</a>
-    </div>
-
+  <script src="https://utteranc.es/client.js"
+    repo="nmin11/nmin11.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+  
 </div>
-
-  </div>
-
-  <div class="bg-blue-100 dark:bg-gray-900">
+<div class="bg-blue-100 dark:bg-gray-900">
   <div class="container px-4 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
     <div>
       <div class="text-2xl font-bold mb-2">Follow me</div>
