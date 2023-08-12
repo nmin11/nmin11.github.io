@@ -5,13 +5,31 @@
     <link>https://nmin11.github.io/en/tags/</link>
     <description>Recent content in Tags on Loko</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://nmin11.github.io/en/tags/aws/</link>
-      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://nmin11.github.io/en/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cdk</title>
+      <link>https://nmin11.github.io/en/tags/cdk/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/en/tags/cdk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iac</title>
+      <link>https://nmin11.github.io/en/tags/iac/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/en/tags/iac/</guid>
       <description></description>
     </item>
     
