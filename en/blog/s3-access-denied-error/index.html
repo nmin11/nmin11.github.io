@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nmin11.github.io/en/blog/s3-access-denied-error/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-07-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-01T00:00:00+00:00" /><meta property="og:site_name" content="Loko" />
+<meta property="article:modified_time" content="2024-01-04T00:00:00+00:00" /><meta property="og:site_name" content="Loko" />
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mysterious S3 Access Denied Error"/>
@@ -31,8 +31,8 @@
 
   <meta itemprop="name" content="Mysterious S3 Access Denied Error">
 <meta itemprop="description" content="Access Denied error occurred while trying to retrieve a triggered object"><meta itemprop="datePublished" content="2023-07-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-07-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="471">
+<meta itemprop="dateModified" content="2024-01-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="606">
 <meta itemprop="keywords" content="aws,go,troubleshooting," />
 
   
@@ -159,7 +159,12 @@
 
 
       
-        &nbsp;&bull;&nbsp;
+        &nbsp(Last modified on 
+  
+    January 4, 2024
+  
+
+)</h5><h5 class="text-sm flex items-center flex-wrap">
       
       <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -176,7 +181,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      471&nbsp;words
+      606&nbsp;words
       
         &nbsp;&bull;&nbsp;Other languages: &nbsp;<a href="https://nmin11.github.io/kr/blog/s3-access-denied-error/" lang="kr">Korean</a>
       
@@ -214,8 +219,13 @@
         <ul>
             <li>
         <a href="#source-code-used-for-demonstration">Source code used for demonstration</a>
+        
+
+        
         </li></ul>
-    </li></ul>
+      </li><li>
+        <a href="#-added-on-202414">+ Added on 2024/1/4</a>
+        </li></ul>
   </details>
 
     <h2 id="how-i-discovered-the-error">How I discovered the error</h2>
@@ -269,6 +279,15 @@ However, that function doesn&rsquo;t handle empty space value(<code> </code>) be
 And finally, I was able to retrieve the object successfully even if I received a key name with Korean characters, special characters, or empty spaces.</p>
 <h3 id="source-code-used-for-demonstration">Source code used for demonstration</h3>
 <script src="https://gist.github.com/nmin11/26204a27da20909f5c18fc851b835dcc.js"></script>
+<hr>
+<h2 id="-added-on-202414">+ Added on 2024/1/4</h2>
+<p>Today at work, I stumbled upon a reason as to why AWS S3 returns an Access Denied error even when the object doesn&rsquo;t exist.<br>
+It&rsquo;s because AWS policy doesn&rsquo;t let me know if the object I am looking for via <code>GetObject</code> exists or not.<br>
+I did a little more research after work and found <a href="https://stackoverflow.com/questions/56027399/why-am-i-getting-different-errors-when-trying-to-read-s3-key-that-does-not-exist" target="_blank" rel="noopener">a question</a>
+ on StackOverflow.<br>
+To summarize, it&rsquo;s designed to prevent me from exploring whether a particular key exists when I only have <code>GetObject</code> permission but not <code>ListObject</code> permission.<br>
+In the example code I implemented, I had both <code>GetObject</code> and <code>ListObject</code> permissions in my local environment because I was running it directly with my AWS credentials.<br>
+However, when I deployed it as a Lambda, I was only granted <code>GetObject</code> permissions, which is why I was experiencing permissions issues.</p>
 
   </article>
 <div class="px-2 mb-2">
