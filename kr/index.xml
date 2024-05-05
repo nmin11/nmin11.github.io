@@ -17,10 +17,10 @@
     
     <item>
       <title>주요 GC 알고리즘들</title>
-      <link>https://nmin11.github.io/kr/blog/major-gc-algorithms/</link>
+      <link>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/major-gc-algorithms/</guid>
+      <guid>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</guid>
       <description>『자바 최적화』 스터디를 하면서 주요 GC 알고리즘들에 대해 더 깊이 공부하고자 작성한 글입니다.
 Serial GC 가장 단순한 GC 구현체 STW(Stop-The-World) 이후 한 개의 스레드에서만 GC 수행 mark-sweep-compact 알고리즘 사용 멀티 스레드 환경에서는 부적합 ❖ Serial GC 활성화 플래그
 java -XX:+UseSerialGC Parallel GC 자바 5 ~ 8까지 디폴트 GC GC 처리율을 최대화하기 때문에 Throughput Collector 라고도 불림 메모리 공간이 충분하고 코어 개수가 많을 때 유리한 알고리즘 플래그를 통해 GC에 사용할 최대 스레드 수, 최대 중단 시간, GC 수행 시간 비율을 설정할 수 있음 -XX:ParallelGCThreads=&amp;lt;N&amp;gt; -XX:MaxGCPauseMillis=&amp;lt;N&amp;gt; -XX:GCTimeRatio=&amp;lt;N&amp;gt; ❖ Parallel GC 활성화 플래그</description>
@@ -28,10 +28,10 @@ java -XX:+UseSerialGC Parallel GC 자바 5 ~ 8까지 디폴트 GC GC 처리율�
     
     <item>
       <title>AWS CDK는 은탄환이 아니다</title>
-      <link>https://nmin11.github.io/kr/blog/aws-cdk-is-not-a-silver-bullet/</link>
+      <link>https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/aws-cdk-is-not-a-silver-bullet/</guid>
+      <guid>https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</guid>
       <description>TL;DR (Notion AI가 작성해준 글) AWS CDK(클라우드 개발 키트)는 코드형 인프라(IaC) 개발을 위해 널리 사용되고 있지만, 모든 사용 사례에 적합한 솔루션은 아니라는 점에 유의해야 합니다.
 첫째, 많은 사용자 정의가 필요하지 않은 소규모 프로젝트나 간단한 인프라 설정에는 AWS CDK가 최선의 선택이 아닐 수 있습니다. 이러한 경우에는 더 간단한 IaC 도구를 사용하거나 AWS 콘솔에서 직접 코드를 작성하는 것이 더 효율적일 수 있습니다.
 둘째, AWS CDK는 인프라 정의를 위한 높은 수준의 객체 지향 추상화를 제공하지만, 특정 상황에서는 복잡성을 증가시킬 수도 있습니다.</description>
@@ -39,10 +39,10 @@ java -XX:+UseSerialGC Parallel GC 자바 5 ~ 8까지 디폴트 GC GC 처리율�
     
     <item>
       <title>의문의 S3 Access Denied 에러</title>
-      <link>https://nmin11.github.io/kr/blog/s3-access-denied-error/</link>
+      <link>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/s3-access-denied-error/</guid>
+      <guid>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</guid>
       <description>에러를 발견하게 된 계기 사실은 똑같은 에러를 두 번이나 겪었다.
 두 번 다 회사 업무 중 발생한 에러는 아니었지만, 둘 다 회사 업무와 관련된 기능을 테스트해 보기 위해서 구현했던 사이드에서 발생했다.
 구현했던 것은 S3에 객체가 생성되었을 때, 그 event로 트리거되는 Lambda 함수였다.
@@ -52,10 +52,10 @@ java -XX:+UseSerialGC Parallel GC 자바 5 ~ 8까지 디폴트 GC GC 처리율�
     
     <item>
       <title>Github Pages로 만드는 나만의 기술 블로그</title>
-      <link>https://nmin11.github.io/kr/blog/make-tech-blog-with-github-pages/</link>
+      <link>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/make-tech-blog-with-github-pages/</guid>
+      <guid>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</guid>
       <description>0. Github Pages란? Github Pages는 서버나 DB 없이, 나만의 웹 페이지를 &amp;lsquo;무료&amp;rsquo;로 제작해서 가질 수 있게 해주는 유용한 도구이다.
 블로그 뿐만이 아니라 이력서, 포트폴리오, 공식 문서, 갤러리, 아카이브 용도로도 많이 사용되고 있다.
 (특히 포트폴리오 용도로 제작하는 분들이 꽤 많은 것 같다.)

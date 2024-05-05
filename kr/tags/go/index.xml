@@ -8,10 +8,10 @@
     <lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>의문의 S3 Access Denied 에러</title>
-      <link>https://nmin11.github.io/kr/blog/s3-access-denied-error/</link>
+      <link>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://nmin11.github.io/kr/blog/s3-access-denied-error/</guid>
+      <guid>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</guid>
       <description>에러를 발견하게 된 계기 사실은 똑같은 에러를 두 번이나 겪었다.
 두 번 다 회사 업무 중 발생한 에러는 아니었지만, 둘 다 회사 업무와 관련된 기능을 테스트해 보기 위해서 구현했던 사이드에서 발생했다.
 구현했던 것은 S3에 객체가 생성되었을 때, 그 event로 트리거되는 Lambda 함수였다.
