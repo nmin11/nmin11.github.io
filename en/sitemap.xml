@@ -2,6 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nmin11.github.io/en/essay/sample/</loc>
+    <lastmod>2024-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/essay/sample/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/essay/sample/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/essay/</loc>
+    <lastmod>2024-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/essay/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/essay/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/</loc>
+    <lastmod>2024-05-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/"
+                />
+  </url><url>
     <loc>https://nmin11.github.io/en/blog/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -26,19 +65,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://nmin11.github.io/en/tags/java/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/en/</loc>
-    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/en/blog/major-gc-algorithms/</loc>

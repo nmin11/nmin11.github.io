@@ -5,7 +5,16 @@
     <link>https://nmin11.github.io/kr/</link>
     <description>Recent content on 로코</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>에세이 페이지 공사 중</title>
+      <link>https://nmin11.github.io/kr/essay/sample/</link>
+      <pubDate>Sun, 05 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmin11.github.io/kr/essay/sample/</guid>
+      <description>주인장이 글을 작성할 때까지 잠시만 기다려주세요.</description>
+    </item>
+    
     <item>
       <title>주요 GC 알고리즘들</title>
       <link>https://nmin11.github.io/kr/blog/major-gc-algorithms/</link>
