@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on Loko</title>
+    <title>Hugo on Loko</title>
     <link>https://nmin11.github.io/en/tags/hugo/</link>
-    <description>Recent content in hugo on Loko</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Hugo on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Make tech blog with Github Pages</title>
       <link>https://nmin11.github.io/en/blog/1-make-tech-blog-with-github-pages/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/blog/1-make-tech-blog-with-github-pages/</guid>
-      <description>0. What is Github Pages? Github Pages is a useful tool that allows us to create our own website for free without a server or DB.
-It is widely used not only for blogs but also for resumes, portfolios, official documents, galleries, and archives.
-(Especially, many developer create portfolio with Github Pages.)
-I also chose Github Pages because I wanted to create a new tech blog!
-Github Pages 1. Why Hugo?</description>
+      <description>&lt;h2 id=&#34;0-what-is-github-pages&#34;&gt;0. What is Github Pages?&lt;/h2&gt;&#xA;&lt;p&gt;Github Pages is a useful tool that allows us to create our own website for free without a server or DB.&lt;br&gt;&#xA;It is widely used not only for blogs but also for resumes, portfolios, official documents, galleries, and archives.&lt;br&gt;&#xA;(Especially, many developer create portfolio with Github Pages.)&lt;br&gt;&#xA;I also chose Github Pages because I wanted to create a new tech blog!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pages.github.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github Pages&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-why-hugo&#34;&gt;1. Why Hugo?&lt;/h2&gt;&#xA;&lt;p&gt;In order to create Github Pages, we need to use &lt;strong&gt;Static Site Generator&lt;/strong&gt;, which create static website.&lt;br&gt;&#xA;I checked the &lt;a href=&#34;https://ossinsight.io/collections/static-site-generator/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ranking&lt;/a&gt;&#xA; without hesitation.&lt;br&gt;&#xA;Hugo, which I chose from the ranking table, was ranked 6th as of February 2023, indicating that it is a very popular tool.&lt;br&gt;&#xA;In addition, there were many blog posts in Korean language that show how to deploy Github Pages using Hugo, and it looked really easy and simple.&lt;br&gt;&#xA;As Hugo supported various themes, I thought I just needed to choose a theme and change it to suit my taste.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>study on Loko</title>
+    <title>Study on Loko</title>
     <link>https://nmin11.github.io/en/tags/study/</link>
-    <description>Recent content in study on Loko</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/study/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Study on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/study/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Major GC Algorithms</title>
       <link>https://nmin11.github.io/en/blog/4-major-gc-algorithms/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/blog/4-major-gc-algorithms/</guid>
-      <description>This article was written with the intention of studying major GC algorithms more deeply while participating in the &amp;lsquo;Optimizing Java&amp;rsquo; study.
-Serial GC The simplest GC implementation Only one thread performs GC after Stop-The-World (STW) Uses the mark-sweep-compact algorithm Not suitable for multi-threaded environments ❖ Enable Serial GC flag
-java -XX:+UseSerialGC Parallel GC Default GC from Java 5 to 8 Also known as the Throughput Collector as it maximizes GC throughput Advantageous algorithm when there is sufficient memory space and a high number of cores Flags can be used to configure parameters such as the maximum number of threads, maximum pause time, and GC execution time ratio -XX:ParallelGCThreads=&amp;lt;N&amp;gt; -XX:MaxGCPauseMillis=&amp;lt;N&amp;gt; -XX:GCTimeRatio=&amp;lt;N&amp;gt; ❖ Enable Parallel GC flag</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was written with the intention of studying major GC algorithms more deeply while participating in the &amp;lsquo;Optimizing Java&amp;rsquo; study.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;serial-gc&#34;&gt;Serial GC&lt;/h2&gt;&#xA;&lt;img src=&#34;https://github.com/nmin11/blog/assets/75058239/2a864abb-d0f9-4371-a7ea-e86db324af71&#34; width=300&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The simplest GC implementation&lt;/li&gt;&#xA;&lt;li&gt;Only one thread performs GC after Stop-The-World (STW)&lt;/li&gt;&#xA;&lt;li&gt;Uses the mark-sweep-compact algorithm&lt;/li&gt;&#xA;&lt;li&gt;Not suitable for multi-threaded environments&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;❖ Enable Serial GC flag&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -XX:+UseSerialGC&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;parallel-gc&#34;&gt;Parallel GC&lt;/h2&gt;&#xA;&lt;img src=&#34;https://github.com/nmin11/blog/assets/75058239/fbf491b0-e50e-4c8d-91c1-2908a363b0d1&#34; width=400&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Default GC from Java 5 to 8&lt;/li&gt;&#xA;&lt;li&gt;Also known as the &lt;em&gt;Throughput Collector&lt;/em&gt; as it maximizes GC throughput&lt;/li&gt;&#xA;&lt;li&gt;Advantageous algorithm when there is sufficient memory space and a high number of cores&lt;/li&gt;&#xA;&lt;li&gt;Flags can be used to configure parameters such as the maximum number of threads, maximum pause time, and GC execution time ratio&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:ParallelGCThreads=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:MaxGCPauseMillis=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:GCTimeRatio=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;❖ Enable Parallel GC flag&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,97 +4,79 @@
     <title>Tags on Loko</title>
     <link>https://nmin11.github.io/en/tags/</link>
     <description>Recent content in Tags on Loko</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>java</title>
+      <title>Java</title>
       <link>https://nmin11.github.io/en/tags/java/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>study</title>
+      <title>Study</title>
       <link>https://nmin11.github.io/en/tags/study/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/study/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>aws</title>
+      <title>Aws</title>
       <link>https://nmin11.github.io/en/tags/aws/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/aws/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cdk</title>
+      <title>Cdk</title>
       <link>https://nmin11.github.io/en/tags/cdk/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/cdk/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>iac</title>
+      <title>Iac</title>
       <link>https://nmin11.github.io/en/tags/iac/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/iac/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>go</title>
+      <title>Go</title>
       <link>https://nmin11.github.io/en/tags/go/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/go/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>troubleshooting</title>
+      <title>Troubleshooting</title>
       <link>https://nmin11.github.io/en/tags/troubleshooting/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/troubleshooting/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>github</title>
+      <title>Github</title>
       <link>https://nmin11.github.io/en/tags/github/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/github/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hugo</title>
+      <title>Hugo</title>
       <link>https://nmin11.github.io/en/tags/hugo/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tech</title>
+      <title>Tech</title>
       <link>https://nmin11.github.io/en/tags/tech/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/tags/tech/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

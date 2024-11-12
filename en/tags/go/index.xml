@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on Loko</title>
+    <title>Go on Loko</title>
     <link>https://nmin11.github.io/en/tags/go/</link>
-    <description>Recent content in go on Loko</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nmin11.github.io/en/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Go on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mysterious S3 Access Denied Error</title>
       <link>https://nmin11.github.io/en/blog/2-s3-access-denied-error/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nmin11.github.io/en/blog/2-s3-access-denied-error/</guid>
-      <description>How I discovered the error I actually encountered the same error twice.
-Neither error occurred in the course of work, but both occurred on the side projects that I had implemented a feature to test work-related functionality.
-What I implemented was a Lambda function that triggered by S3 object created event.
-These Lambda functions had a common logic: get the object&amp;rsquo;s key name from the received event, and look up the object information again via that key name.</description>
+      <description>&lt;h2 id=&#34;how-i-discovered-the-error&#34;&gt;How I discovered the error&lt;/h2&gt;&#xA;&lt;p&gt;I actually encountered the same error twice.&lt;br&gt;&#xA;Neither error occurred in the course of work, but both occurred on the side projects that I had implemented a feature to test work-related functionality.&lt;br&gt;&#xA;What I implemented was a &lt;strong&gt;Lambda function that triggered by S3 object created event.&lt;/strong&gt;&lt;br&gt;&#xA;These Lambda functions had a common logic: &lt;strong&gt;get the object&amp;rsquo;s key name from the received event, and look up the object information again via that key name.&lt;/strong&gt;&lt;br&gt;&#xA;However, my Lambda functions returned an Access Denied error.&lt;br&gt;&#xA;Even though my lambda functions had enough permission to run &lt;code&gt;GetObject&lt;/code&gt; from that bucket!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

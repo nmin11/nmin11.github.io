@@ -10,7 +10,7 @@
   </title>
   <meta name="description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자" />
   <meta name="author" content="Loko" />
-  <meta name="generator" content="Hugo 0.110.0"><link
+  <meta name="generator" content="Hugo 0.138.0"><link
     rel="stylesheet"
     href="https://nmin11.github.io/css/styles.min.d78530a57a2b7bf6fae40aef80b316b4b5d8bb2226d9408f3bf8fcbbdcc3f3de.css"
     integrity="sha256-14UwpXore/b65ArvgLMWtLXYuyIm2UCPO/j8u9zD894="
@@ -18,22 +18,30 @@
   
   
 
-  <meta property="og:title" content="주요 GC 알고리즘들" />
-<meta property="og:description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nmin11.github.io/kr/blog/4-major-gc-algorithms/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2024-03-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-14T00:00:00+00:00" /><meta property="og:site_name" content="로코" />
+  <meta property="og:url" content="https://nmin11.github.io/kr/blog/4-major-gc-algorithms/">
+  <meta property="og:site_name" content="로코">
+  <meta property="og:title" content="주요 GC 알고리즘들">
+  <meta property="og:description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자">
+  <meta property="og:locale" content="kr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-03-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-14T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Study">
 
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="주요 GC 알고리즘들"/>
-<meta name="twitter:description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자"/>
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="주요 GC 알고리즘들">
+  <meta name="twitter:description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자">
 
+  
   <meta itemprop="name" content="주요 GC 알고리즘들">
-<meta itemprop="description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자"><meta itemprop="datePublished" content="2024-03-14T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="795">
-<meta itemprop="keywords" content="java,study," />
+  <meta itemprop="description" content="주요 가비지 컬렉션 알고리즘들에 대해 알아보자">
+  <meta itemprop="datePublished" content="2024-03-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-14T00:00:00+00:00">
+  <meta itemprop="wordCount" content="795">
+  <meta itemprop="keywords" content="Java,Study">
 
   
   <meta name="lang" content="kr" />
@@ -307,7 +315,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -XX:+UseParallelOldGC
 </span></span></code></pre></div><h2 id="cms-gc">CMS GC</h2>
 <p><em>Concurrent Mark Sweep</em></p>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/ae758bfe-404e-4b03-ba4a-f5a0cf2384f5" alt="cms-gc"></p>
+<p><img alt="cms-gc" src="https://github.com/nmin11/TIL/assets/75058239/ae758bfe-404e-4b03-ba4a-f5a0cf2384f5"></p>
 <p>❖ Concurrent가 붙으면 애플리케이션 작동 중 동시에 수행된다는 의미</p>
 <ul>
 <li>Initial Mark 단계: 클래스로더에서 가장 가까운 객체 중 살아있는 객체만 찾고 끝</li>
@@ -337,7 +345,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -XX:+UseConcMarkSweepGC
 </span></span></code></pre></div><h2 id="g1-gc">G1 GC</h2>
 <p><em>Garbage First</em></p>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/f3893306-45de-4b70-912b-12bd2e5e47ba" alt="g1-gc"></p>
+<p><img alt="g1-gc" src="https://github.com/nmin11/TIL/assets/75058239/f3893306-45de-4b70-912b-12bd2e5e47ba"></p>
 <ul>
 <li>Java 9부터 디폴트 GC</li>
 <li>지금까지의 GC와는 완전히 다른 방식</li>
@@ -356,7 +364,7 @@
 <li>스윕 단계: 거의 비어있는 리전부터 우선적으로 가비지를 수집해서 상당한 여유 공간을 확보</li>
 </ul>
 <h3 id="rset-remembered-set">RSet (Remembered Set)</h3>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/ce68836b-8673-46cc-b60e-cc18fe8829f5" alt="rset"></p>
+<p><img alt="rset" src="https://github.com/nmin11/TIL/assets/75058239/ce68836b-8673-46cc-b60e-cc18fe8829f5"></p>
 <ul>
 <li>영역별로 하나씩 존재하는, 외부에서 힙 영역 내부를 참조하기 위한 레퍼런스 관리 장치</li>
 <li>floating garbage를 추적하기 위한 용도
@@ -372,7 +380,7 @@
 <li>비어있게 된 Eden 영역을 Available/Unused 영역으로 지정</li>
 </ul>
 <h3 id="major-gc">Major GC</h3>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/a9af8b42-4f0b-4b38-bb7d-06e850f6cf2e" alt="g1-gc-process"></p>
+<p><img alt="g1-gc-process" src="https://github.com/nmin11/TIL/assets/75058239/a9af8b42-4f0b-4b38-bb7d-06e850f6cf2e"></p>
 <ul>
 <li>Initial Mark 단계: Old 리전의 객체들이 참조하는 Survivor 영역의 객체들을 마킹 (STW)</li>
 <li>Root Region Scan 단계: 위 단계에서 찾은 Survivor 객체들에 대한 스캔 작업</li>
@@ -384,7 +392,7 @@
 <p>❖ G1 GC 활성 플래그</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -XX:+UseG1GC
 </span></span></code></pre></div><h2 id="z-gc">Z GC</h2>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/a26abb49-e049-4240-a634-29ec9fde7635" alt="zgc-concept-1"></p>
+<p><img alt="zgc-concept-1" src="https://github.com/nmin11/TIL/assets/75058239/a26abb49-e049-4240-a634-29ec9fde7635"></p>
 <ul>
 <li>Java 11 때 실험 버전으로 등장, 이후 Java 15부터 정식 버전 출시</li>
 <li><strong>STW 시간을 10ms 이하로!</strong>
@@ -401,7 +409,7 @@
 </li>
 </ul>
 <h3 id="colored-pointers">Colored pointers</h3>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/7a620525-8a40-4499-a548-ca0b8f80bca4" alt="colored-pointers"></p>
+<p><img alt="colored-pointers" src="https://github.com/nmin11/TIL/assets/75058239/7a620525-8a40-4499-a548-ca0b8f80bca4"></p>
 <ul>
 <li>객체를 가리키는 변수의 포인터에서 64bit 메모리를 활용해서 객체 상태값을 저장
 <ul>
@@ -423,7 +431,7 @@
 </li>
 </ul>
 <h3 id="load-barriers">Load barriers</h3>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/e7d92b3d-e6db-4a4e-95b5-65031ae2c178" alt="zgc-concept-7"></p>
+<p><img alt="zgc-concept-7" src="https://github.com/nmin11/TIL/assets/75058239/e7d92b3d-e6db-4a4e-95b5-65031ae2c178"></p>
 <ul>
 <li>객체를 참조할 때 실행되는 코드</li>
 <li>힙에 있는 객체가 참조할 수 있는 상태인지 검사
@@ -462,7 +470,7 @@
 </ul>
 <br>
 <p>❖ Z GC의 압도적인 STW 시간</p>
-<p><img src="https://github.com/nmin11/TIL/assets/75058239/6ac87a0a-82fc-499c-962e-f3aa88f4c218" alt="zgc-performance"></p>
+<p><img alt="zgc-performance" src="https://github.com/nmin11/TIL/assets/75058239/6ac87a0a-82fc-499c-962e-f3aa88f4c218"></p>
 <br>
 <p>❖ Z GC 활성화 플래그</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -XX:+UseZGC
@@ -1016,17 +1024,20 @@
 <script src="https://nmin11.github.io/js/scripts.min.js"></script>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE1FBNSDWV"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-CE1FBNSDWV', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE1FBNSDWV"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CE1FBNSDWV');
+        }
+      </script>
 
 
 
