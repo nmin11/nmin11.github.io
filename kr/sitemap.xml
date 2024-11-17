@@ -41,19 +41,6 @@
                 href="https://nmin11.github.io/kr/essay/sample/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/</loc>
-    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/"
-                />
-  </url><url>
     <loc>https://nmin11.github.io/kr/tags/java/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -93,17 +80,30 @@
                 href="https://nmin11.github.io/kr/tags/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</loc>
+    <loc>https://nmin11.github.io/kr/tech/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/blog/4-major-gc-algorithms/"
+                href="https://nmin11.github.io/en/tech/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/4-major-gc-algorithms/"
+                href="https://nmin11.github.io/kr/tech/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tech/4-major-gc-algorithms/</loc>
+    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tech/4-major-gc-algorithms/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tech/4-major-gc-algorithms/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/aws/</loc>
@@ -119,17 +119,17 @@
                 href="https://nmin11.github.io/kr/tags/aws/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</loc>
+    <loc>https://nmin11.github.io/kr/tech/3-aws-cdk-is-not-a-silver-bullet/</loc>
     <lastmod>2023-08-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/blog/3-aws-cdk-is-not-a-silver-bullet/"
+                href="https://nmin11.github.io/en/tech/3-aws-cdk-is-not-a-silver-bullet/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/"
+                href="https://nmin11.github.io/kr/tech/3-aws-cdk-is-not-a-silver-bullet/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/cdk/</loc>
@@ -184,17 +184,17 @@
                 href="https://nmin11.github.io/kr/tags/troubleshooting/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</loc>
+    <loc>https://nmin11.github.io/kr/tech/2-s3-access-denied-error/</loc>
     <lastmod>2024-01-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/blog/2-s3-access-denied-error/"
+                href="https://nmin11.github.io/en/tech/2-s3-access-denied-error/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/2-s3-access-denied-error/"
+                href="https://nmin11.github.io/kr/tech/2-s3-access-denied-error/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/github/</loc>
@@ -210,17 +210,17 @@
                 href="https://nmin11.github.io/kr/tags/github/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</loc>
+    <loc>https://nmin11.github.io/kr/tech/1-make-tech-blog-with-github-pages/</loc>
     <lastmod>2023-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://nmin11.github.io/en/blog/1-make-tech-blog-with-github-pages/"
+                href="https://nmin11.github.io/en/tech/1-make-tech-blog-with-github-pages/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
-                href="https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/"
+                href="https://nmin11.github.io/kr/tech/1-make-tech-blog-with-github-pages/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/tags/hugo/</loc>
