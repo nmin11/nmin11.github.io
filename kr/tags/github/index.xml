@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on 로코</title>
-    <link>https://nmin11.github.io/kr/tags/github/</link>
+    <link>http://localhost:1313/kr/tags/github/</link>
     <description>Recent content in Github on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
     <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://nmin11.github.io/kr/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/kr/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Pages로 만드는 나만의 기술 블로그</title>
-      <link>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</link>
+      <link>http://localhost:1313/kr/blog/1-make-tech-blog-with-github-pages/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</guid>
+      <guid>http://localhost:1313/kr/blog/1-make-tech-blog-with-github-pages/</guid>
       <description>&lt;h2 id=&#34;0-github-pages란&#34;&gt;0. Github Pages란?&lt;/h2&gt;&#xA;&lt;p&gt;Github Pages는 서버나 DB 없이, 나만의 웹 페이지를 &amp;lsquo;무료&amp;rsquo;로 제작해서 가질 수 있게 해주는 유용한 도구이다.&lt;br&gt;&#xA;블로그 뿐만이 아니라 이력서, 포트폴리오, 공식 문서, 갤러리, 아카이브 용도로도 많이 사용되고 있다.&lt;br&gt;&#xA;(특히 포트폴리오 용도로 제작하는 분들이 꽤 많은 것 같다.)&lt;br&gt;&#xA;필자 또한 새로운 기술 블로그를 만들고 싶어서 Github Pages를 선택하게 되었다!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pages.github.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github Pages&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-hugo를-선택한-이유&#34;&gt;1. Hugo를 선택한 이유&lt;/h2&gt;&#xA;&lt;p&gt;Github Pages를 제작하기 위해서, 정적 웹사이트를 생성해주는 &lt;strong&gt;Static Site Generator&lt;/strong&gt;라는 것을 사용해야 한다.&lt;br&gt;&#xA;필자는 고민도 없이 &lt;a href=&#34;https://ossinsight.io/collections/static-site-generator/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;랭킹&lt;/a&gt;&#xA;을 확인해보았다.&lt;br&gt;&#xA;이 중에서 내가 고른 &lt;strong&gt;Hugo&lt;/strong&gt;는 2023년 2월 기준 6위로, 인기가 상당한 도구라는 것을 알 수 있었다.&lt;br&gt;&#xA;게다가 Hugo를 활용해서 Github Pages를 제작하는 방법을 알려주는 한국어로 된 블로그 포스팅도 많았고, 그 방법을 살펴보니 정말 쉽고 간편해보였다.&lt;br&gt;&#xA;Hugo에서 각종 테마들을 지원해주다보니, 내가 원하는 테마를 골라서 가이드에 따라 제작하고, 입맛에 맞게 커스텀하면 되겠다는 생각이 들었다.&lt;/p&gt;</description>
     </item>
   </channel>

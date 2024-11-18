@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Troubleshooting on 로코</title>
-    <link>https://nmin11.github.io/kr/tags/troubleshooting/</link>
+    <link>http://localhost:1313/kr/tags/troubleshooting/</link>
     <description>Recent content in Troubleshooting on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
     <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://nmin11.github.io/kr/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/kr/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>의문의 S3 Access Denied 에러</title>
-      <link>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</link>
+      <link>http://localhost:1313/kr/blog/2-s3-access-denied-error/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</guid>
+      <guid>http://localhost:1313/kr/blog/2-s3-access-denied-error/</guid>
       <description>&lt;h2 id=&#34;에러를-발견하게-된-계기&#34;&gt;에러를 발견하게 된 계기&lt;/h2&gt;&#xA;&lt;p&gt;사실은 똑같은 에러를 두 번이나 겪었다.&lt;br&gt;&#xA;두 번 다 회사 업무 중 발생한 에러는 아니었지만, 둘 다 회사 업무와 관련된 기능을 테스트해 보기 위해서 구현했던 사이드에서 발생했다.&lt;br&gt;&#xA;구현했던 것은 S3에 객체가 생성되었을 때, &lt;strong&gt;그 event로 트리거되는 Lambda 함수&lt;/strong&gt;였다.&lt;br&gt;&#xA;해당 Lambda 함수들은 공통적으로 받은 &lt;strong&gt;event로부터 객체의 key name을 가져오고, 해당 key name을 통해 객체 정보를 다시 조회하는 로직&lt;/strong&gt;이었다.&lt;br&gt;&#xA;하지만 내 Lambda 함수들은 알 수 없는 Access Denied 에러를 반환했다.&lt;br&gt;&#xA;Lambda 함수는 해당하는 S3 Bucket으로부터 &lt;code&gt;GetObject&lt;/code&gt;를 실행할 수 있는 충분한 권한을 가지고 있었는데도 말이다!&lt;/p&gt;</description>
     </item>
   </channel>
