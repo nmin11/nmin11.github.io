@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,8 +15,21 @@
                 href="https://nmin11.github.io/kr/jr-travel/"
                 />
   </url><url>
+    <loc>https://nmin11.github.io/kr/jr-travel/2-kagoshima/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/jr-travel/2-kagoshima/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/jr-travel/2-kagoshima/"
+                />
+  </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
