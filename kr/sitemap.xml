@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
-    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +13,32 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/jr-travel/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/jr-travel/3-fukuoka/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/jr-travel/3-fukuoka/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/jr-travel/3-fukuoka/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/2-kagoshima/</loc>
@@ -26,19 +52,6 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/jr-travel/2-kagoshima/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/1-yakushima/</loc>
