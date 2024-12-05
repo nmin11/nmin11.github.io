@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 로코</title>
-    <link>http://localhost:1313/kr/tags/</link>
+    <link>https://nmin11.github.io/kr/tags/</link>
     <description>Recent content in Tags on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
     <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/kr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nmin11.github.io/kr/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/kr/tags/java/</link>
+      <link>https://nmin11.github.io/kr/tags/java/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/tags/java/</guid>
+      <guid>https://nmin11.github.io/kr/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Aws</title>
-      <link>http://localhost:1313/kr/tags/aws/</link>
+      <link>https://nmin11.github.io/kr/tags/aws/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/tags/aws/</guid>
+      <guid>https://nmin11.github.io/kr/tags/aws/</guid>
       <description></description>
     </item>
   </channel>

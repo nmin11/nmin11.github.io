@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on 로코</title>
-    <link>http://localhost:1313/kr/blog/</link>
+    <link>https://nmin11.github.io/kr/blog/</link>
     <description>Recent content in Blogs on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
     <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/kr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nmin11.github.io/kr/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>주요 GC 알고리즘들</title>
-      <link>http://localhost:1313/kr/blog/4-major-gc-algorithms/</link>
+      <link>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/blog/4-major-gc-algorithms/</guid>
+      <guid>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;『자바 최적화』 스터디를 하면서 주요 GC 알고리즘들에 대해 더 깊이 공부하고자 작성한 글입니다.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;serial-gc&#34;&gt;Serial GC&lt;/h2&gt;&#xA;&lt;img src=&#34;https://github.com/nmin11/blog/assets/75058239/2a864abb-d0f9-4371-a7ea-e86db324af71&#34; width=300&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;가장 단순한 GC 구현체&lt;/li&gt;&#xA;&lt;li&gt;STW(Stop-The-World) 이후 한 개의 스레드에서만 GC 수행&lt;/li&gt;&#xA;&lt;li&gt;mark-sweep-compact 알고리즘 사용&lt;/li&gt;&#xA;&lt;li&gt;멀티 스레드 환경에서는 부적합&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;❖ Serial GC 활성화 플래그&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;java -XX:+UseSerialGC&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;parallel-gc&#34;&gt;Parallel GC&lt;/h2&gt;&#xA;&lt;img src=&#34;https://github.com/nmin11/blog/assets/75058239/fbf491b0-e50e-4c8d-91c1-2908a363b0d1&#34; width=400&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;자바 5 ~ 8까지 디폴트 GC&lt;/li&gt;&#xA;&lt;li&gt;GC 처리율을 최대화하기 때문에 &lt;em&gt;Throughput Collector&lt;/em&gt; 라고도 불림&lt;/li&gt;&#xA;&lt;li&gt;메모리 공간이 충분하고 코어 개수가 많을 때 유리한 알고리즘&lt;/li&gt;&#xA;&lt;li&gt;플래그를 통해 GC에 사용할 최대 스레드 수, 최대 중단 시간, GC 수행 시간 비율을 설정할 수 있음&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:ParallelGCThreads=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:MaxGCPauseMillis=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-XX:GCTimeRatio=&amp;lt;N&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;❖ Parallel GC 활성화 플래그&lt;/p&gt;</description>
     </item>
     <item>
       <title>AWS CDK는 은탄환이 아니다</title>
-      <link>http://localhost:1313/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</link>
+      <link>https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</link>
       <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</guid>
+      <guid>https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/</guid>
       <description>&lt;h2 id=&#34;tldr-notion-ai가-작성해준-글&#34;&gt;TL;DR (Notion AI가 작성해준 글)&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;AWS CDK(클라우드 개발 키트)는 코드형 인프라(IaC) 개발을 위해 널리 사용되고 있지만, 모든 사용 사례에 적합한 솔루션은 아니라는 점에 유의해야 합니다.&lt;/p&gt;&#xA;&lt;p&gt;첫째, 많은 사용자 정의가 필요하지 않은 소규모 프로젝트나 간단한 인프라 설정에는 AWS CDK가 최선의 선택이 아닐 수 있습니다. 이러한 경우에는 더 간단한 IaC 도구를 사용하거나 AWS 콘솔에서 직접 코드를 작성하는 것이 더 효율적일 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;둘째, AWS CDK는 인프라 정의를 위한 높은 수준의 객체 지향 추상화를 제공하지만, 특정 상황에서는 복잡성을 증가시킬 수도 있습니다. 개발자는 AWS CDK가 제공하는 유연성과 이로 인해 발생할 수 있는 추가 복잡성 사이의 장단점을 신중하게 고려해야 합니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>의문의 S3 Access Denied 에러</title>
-      <link>http://localhost:1313/kr/blog/2-s3-access-denied-error/</link>
+      <link>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/blog/2-s3-access-denied-error/</guid>
+      <guid>https://nmin11.github.io/kr/blog/2-s3-access-denied-error/</guid>
       <description>&lt;h2 id=&#34;에러를-발견하게-된-계기&#34;&gt;에러를 발견하게 된 계기&lt;/h2&gt;&#xA;&lt;p&gt;사실은 똑같은 에러를 두 번이나 겪었다.&lt;br&gt;&#xA;두 번 다 회사 업무 중 발생한 에러는 아니었지만, 둘 다 회사 업무와 관련된 기능을 테스트해 보기 위해서 구현했던 사이드에서 발생했다.&lt;br&gt;&#xA;구현했던 것은 S3에 객체가 생성되었을 때, &lt;strong&gt;그 event로 트리거되는 Lambda 함수&lt;/strong&gt;였다.&lt;br&gt;&#xA;해당 Lambda 함수들은 공통적으로 받은 &lt;strong&gt;event로부터 객체의 key name을 가져오고, 해당 key name을 통해 객체 정보를 다시 조회하는 로직&lt;/strong&gt;이었다.&lt;br&gt;&#xA;하지만 내 Lambda 함수들은 알 수 없는 Access Denied 에러를 반환했다.&lt;br&gt;&#xA;Lambda 함수는 해당하는 S3 Bucket으로부터 &lt;code&gt;GetObject&lt;/code&gt;를 실행할 수 있는 충분한 권한을 가지고 있었는데도 말이다!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Github Pages로 만드는 나만의 기술 블로그</title>
-      <link>http://localhost:1313/kr/blog/1-make-tech-blog-with-github-pages/</link>
+      <link>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/blog/1-make-tech-blog-with-github-pages/</guid>
+      <guid>https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/</guid>
       <description>&lt;h2 id=&#34;0-github-pages란&#34;&gt;0. Github Pages란?&lt;/h2&gt;&#xA;&lt;p&gt;Github Pages는 서버나 DB 없이, 나만의 웹 페이지를 &amp;lsquo;무료&amp;rsquo;로 제작해서 가질 수 있게 해주는 유용한 도구이다.&lt;br&gt;&#xA;블로그 뿐만이 아니라 이력서, 포트폴리오, 공식 문서, 갤러리, 아카이브 용도로도 많이 사용되고 있다.&lt;br&gt;&#xA;(특히 포트폴리오 용도로 제작하는 분들이 꽤 많은 것 같다.)&lt;br&gt;&#xA;필자 또한 새로운 기술 블로그를 만들고 싶어서 Github Pages를 선택하게 되었다!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pages.github.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github Pages&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-hugo를-선택한-이유&#34;&gt;1. Hugo를 선택한 이유&lt;/h2&gt;&#xA;&lt;p&gt;Github Pages를 제작하기 위해서, 정적 웹사이트를 생성해주는 &lt;strong&gt;Static Site Generator&lt;/strong&gt;라는 것을 사용해야 한다.&lt;br&gt;&#xA;필자는 고민도 없이 &lt;a href=&#34;https://ossinsight.io/collections/static-site-generator/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;랭킹&lt;/a&gt;&#xA;을 확인해보았다.&lt;br&gt;&#xA;이 중에서 내가 고른 &lt;strong&gt;Hugo&lt;/strong&gt;는 2023년 2월 기준 6위로, 인기가 상당한 도구라는 것을 알 수 있었다.&lt;br&gt;&#xA;게다가 Hugo를 활용해서 Github Pages를 제작하는 방법을 알려주는 한국어로 된 블로그 포스팅도 많았고, 그 방법을 살펴보니 정말 쉽고 간편해보였다.&lt;br&gt;&#xA;Hugo에서 각종 테마들을 지원해주다보니, 내가 원하는 테마를 골라서 가이드에 따라 제작하고, 입맛에 맞게 커스텀하면 되겠다는 생각이 들었다.&lt;/p&gt;</description>
     </item>
   </channel>
