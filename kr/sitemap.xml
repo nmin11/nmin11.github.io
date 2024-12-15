@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
-    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +13,32 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/jr-travel/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/jr-travel/14-hakodate/</loc>
+    <lastmod>2024-12-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/jr-travel/14-hakodate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/jr-travel/14-hakodate/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/</loc>
+    <lastmod>2024-12-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/13-sendai/</loc>
@@ -26,19 +52,6 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/jr-travel/13-sendai/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/12-tokyo/</loc>
@@ -198,7 +211,7 @@
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/essay/</loc>
-    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -211,7 +224,7 @@
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/essay/1-jr-travel/</loc>
-    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
