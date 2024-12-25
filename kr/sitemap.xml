@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmin11.github.io/kr/jr-travel/15-sapporo/</loc>
-    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/jr-travel/15-sapporo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/jr-travel/15-sapporo/"
-                />
-  </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
-    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +16,7 @@
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,6 +26,32 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/jr-travel/16-epilogue/</loc>
+    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/jr-travel/16-epilogue/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/jr-travel/16-epilogue/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/jr-travel/15-sapporo/</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/jr-travel/15-sapporo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/jr-travel/15-sapporo/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/14-hakodate/</loc>
@@ -224,7 +237,7 @@
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/essay/</loc>
-    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -237,7 +250,7 @@
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/essay/1-jr-travel/</loc>
-    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
