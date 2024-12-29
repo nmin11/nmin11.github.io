@@ -278,7 +278,20 @@
         </li></ul>
   </details>
 
-    <h2 id="repeated-wanderings">Repeated Wanderings</h2>
+    <script>
+  const correctPassword = "10151107";
+  const userPassword = prompt("Hint: Japan travel dates in numbers only, excluding the year");
+
+  if (userPassword !== correctPassword) {
+    alert("Incorrect password.");
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.close();
+    }
+  }
+</script>
+<h2 id="repeated-wanderings">Repeated Wanderings</h2>
 <p>Looking back, I realize I&rsquo;ve wandered aimlessly many times throughout my life.</p>
 <p>When I was in high school, I had no idea what kind of life I wanted to lead.<br>
 At one point, I dreamed of becoming a broadcast writer, and then I decided to pursue acting.<br>
