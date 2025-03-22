@@ -379,6 +379,8 @@
                 href="https://nmin11.github.io/kr/about/"
                 />
   </url><url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/starting/</loc>
+  </url><url>
     <loc>https://nmin11.github.io/kr/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -390,5 +392,7 @@
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/categories/"
                 />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/</loc>
   </url>
 </urlset>
