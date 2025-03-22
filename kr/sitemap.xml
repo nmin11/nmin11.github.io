@@ -2,6 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/starting/</loc>
+    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/</loc>
+    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/</loc>
+    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/"
+                />
+  </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -13,19 +32,6 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/jr-travel/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/16-epilogue/</loc>
@@ -379,8 +385,6 @@
                 href="https://nmin11.github.io/kr/about/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/kr/hanghae-plus/starting/</loc>
-  </url><url>
     <loc>https://nmin11.github.io/kr/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -392,7 +396,5 @@
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/categories/"
                 />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/hanghae-plus/</loc>
   </url>
 </urlset>
