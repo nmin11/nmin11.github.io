@@ -2,14 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmin11.github.io/kr/hanghae-plus/starting/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://nmin11.github.io/kr/hanghae-plus/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tags/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/"
+                />
   </url><url>
     <loc>https://nmin11.github.io/kr/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,6 +30,18 @@
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/"
                 />
+  </url><url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/wil-1/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tags/%ED%95%AD%ED%95%B499/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/tags/%ED%95%AD%ED%95%B4%ED%94%8C%EB%9F%AC%EC%8A%A4/</loc>
+    <lastmod>2025-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmin11.github.io/kr/hanghae-plus/starting/</loc>
+    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmin11.github.io/kr/jr-travel/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
@@ -292,19 +314,6 @@
                 rel="alternate"
                 hreflang="kr"
                 href="https://nmin11.github.io/kr/tags/java/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/kr/tags/</loc>
-    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/tags/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</loc>
