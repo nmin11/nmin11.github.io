@@ -38,7 +38,7 @@
   <meta itemprop="description" content="Claude Code, Pulumi와 함께 미니 프로젝트 개발해보기">
   <meta itemprop="datePublished" content="2025-10-03T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-10-03T00:00:00+00:00">
-  <meta itemprop="wordCount" content="785">
+  <meta itemprop="wordCount" content="788">
 
   
   <meta name="lang" content="kr" />
@@ -179,7 +179,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      785&nbsp;단어
+      788&nbsp;단어
       
         &nbsp;&bull;&nbsp;다른 언어 선택: &nbsp;<a href="https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/" lang="en">English</a>
       
@@ -264,6 +264,8 @@
 <p>앞서 Pulumi로 MongoDB 클러스터도 구성할 수 있다고 얘기했지만 최초 구성하는 데에 3분 가량 소요되었고, M0 클러스터는 업데이트가 불가능하다는 이슈가 있었다. 따라서 Pulumi 인프라 구성은 사실상 AWS 위주로 진행하게 되었다. 하지만 그럼에도 시크릿 값을 관리하는 부분에서 CDK에 비해 압도적인 편의성을 느낄 수 있었다.</p>
 <p>이번 프로젝트에서 가장 아쉬움으로 남는 부분은 바로 MongoDB IP 제한을 열어두었다는 점이다. IP 제한을 걸기 위해서는 NAT Gateway와 VPC 연결이 필요하다. 하지만 비용이 100배 가량 증가할 것으로 보여서 현재 프로젝트에서는 진행하지 않는 것으로 결정했다. 이것도 추후에 MongoDB를 또 쓰게 된다면 다시 도전해볼 만한 포인트로 남겨두어야겠다.</p>
 <p>내부 로직 중에서는 중복 피드를 체크하는 로직이 꽤나 까다로웠다. 디스코드 채널 최초 등록 시 <code>lastSentTime</code> 값을 잘못 줘서 메시지 테러를 경험했다. 이는 새로운 피드 등록 시 해당 피드의 최근 글 기준으로 전송 시각 및 URL을 맞춰두는 것으로 해결했다. 또다른 문제는 한 피드에서 한 스케줄링 내에 2개 이상의 피드를 올렸을 때, 다음 스케줄링 때 동일한 피드가 올라오는 문제였다. 이는 <code>rss.xml</code> 같은 RSS 파일이 시간 역순으로 표현되기 때문에 시간 및 URL 기반 중복 체크 로직을 통과해버린 것으로 보인다. 그래서 플래그 값을 하나 두고 첫 아이템 대상으로 마지막 전송 글 정보를 갱신하도록 변경했다.</p>
+<p><a href="https://github.com/nmin11/feednyang" target="_blank" rel="noopener">피드냥 GitHub Repository</a>
+</p>
 <h2 id="느낀-점">느낀 점</h2>
 <p>우선 AI Agent와 함께 만들어본 나름의 첫 아웃풋이라고 느껴져서 보람이 있었다. 앞으로도 AI 도구들을 적극적으로 활용하면서 아웃풋을 더 극대화할 수 있도록 해봐야겠다.</p>
 <p>그리고 이제는 AI 덕분에 코드 작성 역량보다도 설계 역량이 더 중요해지고 있다는 걸 여실히 느꼈다. 이번에 이렇게 간단한 프로젝트를 만드는 데에도 설계 부분에서 턱턱 막히는 것을 보고, 스스로 설계 경험이 많이 부족했다는 점도 깨달았다.</p>

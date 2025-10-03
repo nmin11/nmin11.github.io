@@ -38,7 +38,7 @@
   <meta itemprop="description" content="Developing a mini-project with Claude Code and Pulumi">
   <meta itemprop="datePublished" content="2025-10-03T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-10-03T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1055">
+  <meta itemprop="wordCount" content="1058">
 
   
   <meta name="lang" content="en" />
@@ -179,7 +179,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      1055&nbsp;words
+      1058&nbsp;words
       
         &nbsp;&bull;&nbsp;Other languages: &nbsp;<a href="https://nmin11.github.io/kr/blog/5-tech-blog-feed-discord-bot/" lang="kr">Korean</a>
       
@@ -264,6 +264,8 @@
 <p>As mentioned earlier, I could configure a MongoDB cluster with Pulumi, but the initial setup took about 3 minutes, and there was an issue that M0 clusters cannot be updated. Therefore, the Pulumi infrastructure configuration was actually conducted mainly around AWS. Nevertheless, I could feel overwhelming convenience compared to CDK in managing secret values.</p>
 <p>The most regrettable part of this project is that I left MongoDB&rsquo;s IP restrictions open. To set IP restrictions, NAT Gateway and VPC connection are needed. However, since the cost would increase by about 100 times, I decided not to proceed with it in the current project. This is also a point to leave for future challenges if I use MongoDB again.</p>
 <p>Among the internal logic, the duplicate feed checking logic was quite tricky. During the initial Discord channel registration, I gave the wrong <code>lastSentTime</code> value and experienced message spam. I resolved this by setting the transmission time and URL based on the latest post of that feed when registering a new feed. Another problem was that when a feed posted 2 or more items within one scheduling period, the same feeds would appear in the next scheduling. This seemed to be because RSS files like <code>rss.xml</code> are displayed in reverse chronological order, passing through the time and URL-based duplicate check logic. So I added a flag value and modified it to update the last sent post information for the first item.</p>
+<p><a href="https://github.com/nmin11/feednyang" target="_blank" rel="noopener">Feednyang GitHub Repository</a>
+</p>
 <h2 id="what-i-learned">What I Learned</h2>
 <p>First, it felt rewarding as it&rsquo;s my first output created with an AI Agent. I should continue to actively utilize AI tools to maximize output going forward.</p>
 <p>I also keenly felt that design capabilities are becoming more important than code writing capabilities thanks to AI. Seeing how I kept getting stuck on the design part even when making such a simple project, I realized that I lacked a lot of design experience.</p>
