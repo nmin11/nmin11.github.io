@@ -6,8 +6,15 @@
     <description>Recent content on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
-    <lastBuildDate>Sun, 05 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>디스코드 RSS 피드 봇 개발기</title>
+      <link>https://nmin11.github.io/kr/blog/5-tech-blog-feed-discord-bot/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/kr/blog/5-tech-blog-feed-discord-bot/</guid>
+      <description>&lt;h2 id=&#34;왜-디스코드-봇을-만들었나&#34;&gt;왜 디스코드 봇을 만들었나?&lt;/h2&gt;&#xA;&lt;p&gt;다소 뜬금 없게 여러가지 니즈들이 겹쳐서, 나는 여러 빅테크 기업들의 기술 블로그 피드를 가져와주는 &lt;strong&gt;&amp;ldquo;피드냥&amp;rdquo;&lt;/strong&gt; 을 개발하기로 했다. 니즈들이란 다음과 같다.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ktor + Exposed 조합의 웹 애플리케이션 개발을 경험해보고 싶었다.&lt;/li&gt;&#xA;&lt;li&gt;Claude Code를 처음으로 한번 써보려 했다.&lt;/li&gt;&#xA;&lt;li&gt;기술 블로그를 꾸준히 써야겠다는 필요성을 강하게 느꼈다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;뭘 만들어볼지 고민해보다가, 부트캠프에서 알게 된 지인이 디스코드 봇을 만들어본다길래 나도 한번 가볍게 만들어보고 싶어졌다. 가볍게 개발해볼 수 있는 개발 범위, 여태 해본 적 없는 디스코드 봇이라는 새로운 개발 영역, 그리고 나름 실제 사용자를 경험해볼 수 있다는 점이 나를 피드냥 개발로 이끌었다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>주요 GC 알고리즘들</title>
       <link>https://nmin11.github.io/kr/blog/4-major-gc-algorithms/</link>

@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on Loko</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmin11.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Discord RSS Feed Bot</title>
+      <link>https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/</guid>
+      <description>&lt;h2 id=&#34;why-did-i-create-a-discord-bot&#34;&gt;Why Did I Create a Discord Bot?&lt;/h2&gt;&#xA;&lt;p&gt;Somewhat unexpectedly, several needs converged, and I decided to develop &lt;strong&gt;&amp;ldquo;Feednyang&amp;rdquo;&lt;/strong&gt;, a bot that fetches tech blog feeds from various big tech companies. The needs were as follows:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;I wanted to experience developing a web application with Ktor + Exposed.&lt;/li&gt;&#xA;&lt;li&gt;I wanted to try Claude Code for the first time.&lt;/li&gt;&#xA;&lt;li&gt;I felt a strong need to consistently write technical blog posts.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;While thinking about what to build, an acquaintance from a bootcamp mentioned he was creating a Discord bot, which inspired me to try it as well. The manageable development scope, Discord bot as a new development area I&amp;rsquo;d never explored, and the opportunity to experience real users led me to develop Feednyang.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Major GC Algorithms</title>
       <link>https://nmin11.github.io/en/blog/4-major-gc-algorithms/</link>
