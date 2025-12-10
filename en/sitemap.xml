@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nmin11.github.io/en/blog/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="kr"
@@ -13,6 +13,71 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://nmin11.github.io/en/blog/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/tags/concurrency/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/concurrency/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/concurrency/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/tags/java/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/java/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/java/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/"
+                />
+  </url><url>
+    <loc>https://nmin11.github.io/en/tags/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="kr"
+                href="https://nmin11.github.io/kr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nmin11.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/</loc>
@@ -28,32 +93,6 @@
                 href="https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/"
                 />
   </url><url>
-    <loc>https://nmin11.github.io/en/</loc>
-    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/en/tags/java/</loc>
-    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/tags/java/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/tags/java/"
-                />
-  </url><url>
     <loc>https://nmin11.github.io/en/blog/4-major-gc-algorithms/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -65,19 +104,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://nmin11.github.io/en/blog/4-major-gc-algorithms/"
-                />
-  </url><url>
-    <loc>https://nmin11.github.io/en/tags/</loc>
-    <lastmod>2024-03-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="kr"
-                href="https://nmin11.github.io/kr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nmin11.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://nmin11.github.io/en/tags/aws/</loc>

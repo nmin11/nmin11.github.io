@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurrency on Loko</title>
+    <link>https://nmin11.github.io/en/tags/concurrency/</link>
+    <description>Recent content in Concurrency on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Looking Back at Java Concurrency</title>
+      <link>https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/</guid>
+      <description>&lt;h2 id=&#34;0-introduction&#34;&gt;0. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Embarrassingly, I first encountered the keyword &lt;strong&gt;&amp;ldquo;concurrency&amp;rdquo;&lt;/strong&gt; this year while completing a backend bootcamp.&#xA;To be honest, during the bootcamp, I was able to sufficiently learn how to control concurrency by practicing various lock methods.&#xA;However, rather than just focusing on solving problems, I felt that gaining a fundamental understanding of &amp;ldquo;concurrency&amp;rdquo; would help me develop a professional perspective as a backend developer going forward.&#xA;Therefore, I decided to explore what concurrent programming is and how methods of handling concurrency in the Java ecosystem have evolved.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

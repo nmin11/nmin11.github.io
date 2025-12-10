@@ -6,8 +6,15 @@
     <description>Recent content on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
-    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmin11.github.io/kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 동시성 되짚어보기</title>
+      <link>https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/</guid>
+      <description>&lt;h2 id=&#34;0-서론&#34;&gt;0. 서론&lt;/h2&gt;&#xA;&lt;p&gt;부끄럽게도 이번 해에 백엔드 부트캠프 과정을 수료하면서 &lt;strong&gt;&amp;ldquo;동시성&amp;rdquo;&lt;/strong&gt; 이라는 키워드를 처음 접해봤다.&lt;br&gt;&#xA;사실 부트캠프를 수료하는 과정에서 다양한 Lock 방식을 실습해보면서 동시성을 제어하는 방법은 충분히 숙지할 수 있었다.&lt;br&gt;&#xA;하지만 문제를 해결하는 방법에만 집중하기 보다는 &amp;ldquo;동시성&amp;quot;에 대해 본질적인 이해를 하고 넘어가야 앞으로도 백엔드 개발자로서의 전문적인 시야를 갖출 수 있겠다는 생각이 들었다.&lt;br&gt;&#xA;따라서 동시성 프로그래밍이라는 것이 무엇인지, 또 Java 진영에서 동시성을 다루는 방법들이 어떻게 발전해왔는지를 살펴보기로 했다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-the-free-lunch-is-over-2004&#34;&gt;1. The Free Lunch Is Over (2004)&lt;/h2&gt;&#xA;&lt;p&gt;2004년 12월, Microsoft의 개발자였던 Herb Sutter라는 분이 &lt;a href=&#34;http://www.gotw.ca/publications/concurrency-ddj.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Free Lunch Is Over&lt;/a&gt;&#xA;라는 글을 발표했다.&lt;br&gt;&#xA;이 글은 아래의 강렬한 표어와 함께 시작된다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>디스코드 RSS 피드 봇 개발기</title>
       <link>https://nmin11.github.io/kr/blog/5-tech-blog-feed-discord-bot/</link>

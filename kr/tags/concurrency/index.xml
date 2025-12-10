@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concurrency on 로코</title>
-    <link>http://localhost:1313/kr/tags/concurrency/</link>
+    <link>https://nmin11.github.io/kr/tags/concurrency/</link>
     <description>Recent content in Concurrency on 로코</description>
     <generator>Hugo</generator>
     <language>kr</language>
-    <lastBuildDate>Tue, 01 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/kr/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/kr/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java 동시성의 변천사</title>
-      <link>http://localhost:1313/kr/blog/5-the-evolution-of-concurrency-in-java/</link>
-      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/kr/blog/5-the-evolution-of-concurrency-in-java/</guid>
-      <description>&lt;h2 id=&#34;0-서론&#34;&gt;0. 서론&lt;/h2&gt;&#xA;&lt;p&gt;최근에 항해 플러스 백엔드 8기 과정을 진행하면서 많은 지식들을 흡수하고 있다.&lt;br&gt;&#xA;특히 동일한 자원에 여러 스레드가 동시에 접근할 때 생기는 &lt;strong&gt;동시성 이슈&lt;/strong&gt;는, 부끄럽게도 여태 생각조차 해보지 못한 중요한 학습 포인트였다.&lt;br&gt;&#xA;사실 부트캠프 과정 중에 이미 DB 락과 분산 락을 적용해보면서, 동시성을 제어하는 방법 자체는 충분히 깨달을 수 있었다.&lt;br&gt;&#xA;하지만 문제를 해결하는 방법 자체에만 집중하기 보다는 조금 더 깊이 이해해보는 것이 좋겠다는 생각이 들었다.&lt;br&gt;&#xA;&lt;strong&gt;동시성 프로그래밍&lt;/strong&gt;이라는 것이 무엇인지, 또 Java 진영에서 동시성을 제어하기 위한 방법들이 어떻게 발전해왔는지 살펴보면 더 나은 학습 경험이 될 것이다.&lt;/p&gt;</description>
+      <title>Java 동시성 되짚어보기</title>
+      <link>https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/</guid>
+      <description>&lt;h2 id=&#34;0-서론&#34;&gt;0. 서론&lt;/h2&gt;&#xA;&lt;p&gt;부끄럽게도 이번 해에 백엔드 부트캠프 과정을 수료하면서 &lt;strong&gt;&amp;ldquo;동시성&amp;rdquo;&lt;/strong&gt; 이라는 키워드를 처음 접해봤다.&lt;br&gt;&#xA;사실 부트캠프를 수료하는 과정에서 다양한 Lock 방식을 실습해보면서 동시성을 제어하는 방법은 충분히 숙지할 수 있었다.&lt;br&gt;&#xA;하지만 문제를 해결하는 방법에만 집중하기 보다는 &amp;ldquo;동시성&amp;quot;에 대해 본질적인 이해를 하고 넘어가야 앞으로도 백엔드 개발자로서의 전문적인 시야를 갖출 수 있겠다는 생각이 들었다.&lt;br&gt;&#xA;따라서 동시성 프로그래밍이라는 것이 무엇인지, 또 Java 진영에서 동시성을 다루는 방법들이 어떻게 발전해왔는지를 살펴보기로 했다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-the-free-lunch-is-over-2004&#34;&gt;1. The Free Lunch Is Over (2004)&lt;/h2&gt;&#xA;&lt;p&gt;2004년 12월, Microsoft의 개발자였던 Herb Sutter라는 분이 &lt;a href=&#34;http://www.gotw.ca/publications/concurrency-ddj.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Free Lunch Is Over&lt;/a&gt;&#xA;라는 글을 발표했다.&lt;br&gt;&#xA;이 글은 아래의 강렬한 표어와 함께 시작된다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

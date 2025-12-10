@@ -1,44 +1,51 @@
 <!DOCTYPE html>
-<html lang="kr" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="kr" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="icon" href="/favicon.svg">
 
   <title>
-  로코
+  Java 동시성 되짚어보기 - 로코
   </title>
-  <meta name="description" content="" /><meta name="generator" content="Hugo 0.151.0"><link
-    rel="stylesheet"
-    href="https://nmin11.github.io/css/styles.min.349760f36db0d3a694ca07bab2490f2724dca032ae02dc9fdfa21b8a1aa60df3.css"
-    integrity="sha256-NJdg822w06aUyge6skkPJyTcoDKuAtyf36IbihqmDfM="
-  />
+  <meta name="description" content="Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가" />
+  <meta name="author" content="Loko" />
+  <meta name="generator" content="Hugo 0.151.0">
+  <link rel="stylesheet" href="/css/styles.css" />
   
   
 
-  <link rel="alternate" type="application/rss+xml" href="https://nmin11.github.io/kr/index.xml" title="로코" />
-  <link rel="alternate" type="application/json" href="https://nmin11.github.io/kr/index.json" title="로코" />
-  <meta property="og:url" content="https://nmin11.github.io/kr/">
+  <meta property="og:url" content="http://localhost:1313/kr/blog/6-look-back-at-concurrency/">
   <meta property="og:site_name" content="로코">
-  <meta property="og:title" content="로코">
+  <meta property="og:title" content="Java 동시성 되짚어보기">
+  <meta property="og:description" content="Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가">
   <meta property="og:locale" content="kr">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Concurrency">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="로코">
+  <meta name="twitter:title" content="Java 동시성 되짚어보기">
+  <meta name="twitter:description" content="Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가">
 
   
-  <meta itemprop="name" content="로코">
+  <meta itemprop="name" content="Java 동시성 되짚어보기">
+  <meta itemprop="description" content="Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가">
   <meta itemprop="datePublished" content="2025-12-10T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-12-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="670">
+  <meta itemprop="keywords" content="Java,Concurrency">
 
   
   <meta name="lang" content="kr" />
   
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://nmin11.github.io/kr/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/kr/" class="capitalize font-extrabold text-2xl">
     
     <img src="/loko-logo.webp" alt="로코" class="h-8 max-w-full" />
     
@@ -115,140 +122,213 @@
     
   </ul>
 </header>
-<main class="flex-1"><section class="bg-blue-100 dark:bg-gray-900">
-  <div class="container max-w-screen-lg mx-auto px-6 py-12 grid md:grid-cols-2 gap-4 lg:gap-16 items-center">
-    <div>
-      <h1 class="text-4xl font-bold mb-4">안녕하세요! 남궁민입니다</h1>
-      <p class="font-light text-lg">🧑‍💻 3년차 백엔드 개발자입니다. ✍ 글을 쓰면서 생각을 정리하는 과정을 즐깁니다. 🧙 INFJ입니다. 👯 동료와 함께 성장하는 환경을 지향합니다. 😊 독서, 영화 감상, 컴퓨터 게임, 달리기를 좋아합니다.</p>
-    </div>
-    <img class="rounded-lg shadow-sm" src="/avatar.webp" alt="로코" />
-  </div>
-</section>
-  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-    <div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/">
+<main class="flex-1">
   
-  <div class="relative">
-    <img src="/thumbnail/loom.webp" alt="Java 동시성 되짚어보기" class="rounded-lg shadow-sm w-full h-52 object-cover" />
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/thumbnail/loom.webp" class="rounded-lg shadow-sm w-full object-contain" />
     
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Dec 10, 2025
+    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      December 10, 2025
     </div>
     
   </div>
   
-  <div class="my-2 text-xl font-semibold">Java 동시성 되짚어보기</div>
-  <div>Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가</div>
-</a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/" lang="en">English</a>
-    </div>
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
 
+    <h1 class="text-2xl font-bold mb-2">Java 동시성 되짚어보기</h1>
+    
+    <h5 class="text-sm flex items-center flex-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      발행일 December 10, 2025
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      4분 소요
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      670 단어
+      
+        
+      
+    </h5>
+    
+
+    <details id="TableOfContents" class="px-4 mt-4 bg-gray-100 dark:bg-gray-700 rounded toc">
+    <summary class="flex items-center font-bold py-2 px-4 cursor-pointer justify-between select-none text-black dark:text-white">
+      <span>Table of contents</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <polyline points="6 9 12 15 18 9"></polyline>
+     </svg>
+    </summary>
+
+    <ul class="mt-2 pb-4">
+        
+
+        
+        <li>
+        <a href="#0-%ec%84%9c%eb%a1%a0">0. 서론</a>
+        
+
+        
+        </li><li>
+        <a href="#1-the-free-lunch-is-over">1. The Free Lunch Is Over</a>
+        
+
+        
+        </li><li>
+        <a href="#2-jsr-133166">2. JSR-133/166</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#jsr-133">JSR-133</a>
+        
+
+        
+        </li><li>
+        <a href="#jsr-166">JSR-166</a>
+        
+
+        
+        </li></ul>
+      </li><li>
+        <a href="#3-akka--rxjava">3. Akka / RxJava</a>
+        </li></ul>
+  </details>
+
+    <h2 id="0-서론">0. 서론</h2>
+<p>부끄럽게도 이번 해에 백엔드 부트캠프 과정을 수료하면서 <strong>&ldquo;동시성&rdquo;</strong> 이라는 키워드를 처음 접해봤다.<br>
+사실 부트캠프를 수료하는 과정에서 다양한 Lock 방식을 실습해보면서 동시성을 제어하는 방법은 충분히 숙지할 수 있었다.<br>
+하지만 문제를 해결하는 방법에만 집중하기 보다는 &ldquo;동시성&quot;에 대해 본질적인 이해를 하고 넘어가야 앞으로도 백엔드 개발자로서의 전문적인 시야를 갖출 수 있겠다는 생각이 들었다.<br>
+따라서 동시성 프로그래밍이라는 것이 무엇인지, 또 Java 진영에서 동시성을 다루는 방법들이 어떻게 발전해왔는지를 살펴보기로 했다.</p>
+<h2 id="1-the-free-lunch-is-over">1. The Free Lunch Is Over</h2>
+<p>2004년 12월, Microsoft의 개발자였던 Herb Sutter라는 분이 <a href="http://www.gotw.ca/publications/concurrency-ddj.htm" target="_blank" rel="noopener">The Free Lunch Is Over</a>
+라는 글을 발표했다.<br>
+이 글은 아래의 강렬한 표어와 함께 시작된다.</p>
+<blockquote>
+<p>The biggest sea change in software development since the OO revolution is knocking at the door, and its name is <strong>Concurrency</strong>.</p></blockquote>
+<blockquote>
+<p>객체 지향 혁명 이후 가장 큰 변화의 물결이 소프트웨어 개발의 문을 두드리고 있다. 그것은 바로 <strong>동시성</strong>이다.</p></blockquote>
+<p>Herb Sutter는 1965년에 &ldquo;반도체에 집적되는 트랜지스터의 수가 매년 2배씩 증가한다&quot;라고 주장했던 <em>무어의 법칙</em>이 점차 한계에 봉착하고 있다고 설명한다.<br>
+2001년 8월에 인텔 칩의 CPU 클럭 속도는 2GHz였는데, 이 글이 발표되었던 2004년 12월에도 4GHz의 속도를 갖춘 CPU가 등장하지 않았다고 말해준다.<br>
+사실 4GHz의 클럭 속도는 머지않아 달성할 수 있어 보이지만, 과연 10GHz의 클럭 속도를 달성할 수 있을까?<br>
+아쉽게도 제한된 반도체 용적 안에 과도하게 많은 트랜지스터를 집적하게 되면 발열, 전력 소모, 전류 누설의 문제가 발생하기 때문에 더 높은 클럭 속도를 달성하기가 점점 어려워진다.<br>
+그렇기 때문에 심지어 2025년 현재에도 고성능 CPU가 낼 수 있는 최대 클럭 속도는 6GHz 정도의 수준에 머물러 있다.</p>
+<p>이에 Herb Sutter는 개발자가 매년 컴퓨터 업그레이드 요청만 하면 자동으로 성능을 끌어올릴 수 있었던 <strong>&lsquo;공짜 점심&rsquo;</strong> 이 이미 1~2년 전에 끝났으며, 현대 애플리케이션의 기하급수적으로 높아지는 CPU 처리량에 대비하기 위해 동시성 프로그래밍이 점점 더 중요해질 것이라고 강조한다.<br>
+또한 Java와 같은 프로그래밍 언어 차원에서도 동시성 프로그래밍 모델이 절실히 필요하다고 언급한다.</p>
+<h2 id="2-jsr-133166">2. JSR-133/166</h2>
+<p>이러한 흐름에 발 맞춰서 JCP(Java Community Process)는 2004년에 JSR(Java Specification Request) 133 및 166을 승인한다.<br>
+위 2개 스펙을 통해 Java 언어는 동시성 프로그래밍을 수행할 수 있는 언어로 확고하게 자리 잡았다.<br>
+어떠한 변경사항들이 있었는지 간결하게 살펴보자.</p>
+<h3 id="jsr-133">JSR-133</h3>
+<p>사실 Java 언어는 1.0 때부터 JMM(Java Memory Model)을 통해 멀티스레드를 다룰 수 있었다.<br>
+하지만 <code>final</code> 필드의 값을 변경할 수 있다거나, 동기화를 위한 재정렬을 허용하지 않는 등 심각한 결함들이 존재했다.</p>
+<blockquote>
+<p><strong>재정렬</strong>: 컴파일러, JIT, 캐시 등 다양한 요인에 따라 연산의 순서는 코드 상에서의 흐름과 달라질 수 있는데, 동기화 작업을 수행하려면 컴파일러, 런타임, 하드웨어는 마치 직렬 실행이 되는 것처럼 공모(협력)해야 하며, 이 과정을 &lsquo;재정렬&rsquo;이라고 부름</p></blockquote>
+<p>그렇기 때문에 JSR-133은 JMM의 결함들을 개선하고, <code>volatile</code>, <code>synchronized</code>, <code>final</code> 키워드들이 직관적으로 작동하는 것을 핵심 목표로 삼고 진행되었다.<br>
+개발자가 멀티스레드 프로그램이 어떻게 메모리와 상호작용하는지 자신 있게 추론할 수 있도록 도우며, 다양한 유명 아키텍처들을 정확성과 고성능을 두루 갖춘 채 구현할 수 있도록 제공하고자 했다.<br>
+개략적인 개선 사항들은 다음과 같다.</p>
+<ul>
+<li><strong>Happens-Before</strong>
+<ul>
+<li>먼저 발생한 동작은 먼저 &lsquo;정렬&rsquo;되며, 이후 동작들에서 읽을 수 있도록 보장</li>
+<li>스레드의 각 작업은 해당 스레드의 다음 작업들보다 <strong>먼저 발생</strong></li>
+<li>모니터의 잠금 해제는 해당 모니터의 후속 잠금들보다 <strong>먼저 발생</strong></li>
+<li><code>volatile</code> 필드에 대한 쓰기는 해당 <code>volatile</code> 필드에 대한 후속 읽기보다 <strong>먼저 발생</strong></li>
+<li>모든 메모리 작업은 모니터 잠금 해제 이전에 발생하며, 모니터 해제는 잠금 획득 이전에 발생</li>
+</ul>
+</li>
+<li><code>volatile</code>
+<ul>
+<li>스레드 사이에서 상태 값을 주고받을 수 있는 특수 필드 역할 수행</li>
+<li>필드의 값은 메인 메모리로 flush되고, 모든 스레드에서 즉시 바라볼 수 있음</li>
+<li>즉, 프로그래머가 해당 필드를 캐싱, 재정렬 등으로 인해 &ldquo;오래된&rdquo; 값으로 표시되는 것을 허용하지 않겠다고 표시한 것</li>
+<li>기존에는 단순히 캐시 대신 메모리 직접 접근의 의미였는데, 추가적으로 Memory Barrier 역할도 수행하게 됨</li>
+</ul>
+</li>
+</ul>
+<h3 id="jsr-166">JSR-166</h3>
+<p>JSR-166에서는 스펙 리드였던 Doug Lea의 주도하에, 동시성을 다루는 패러다임을 <strong>&lsquo;언어 지원 방식&rsquo;</strong> 에서 <strong>&lsquo;라이브러리 지원 방식&rsquo;</strong> 으로 전환했다.<br>
+JSR-133에서는 low-level의 언어 차원에서 메모리 모델을 제공했다면, JSR-166에서는 high-level에서 추상화 도구를 제공한 것이다.<br>
+추상화 도구는 <code>java.util.concurrent</code> 패키지와 함께 제공되었으며, 핵심적인 구성요소는 다음과 같다.</p>
+<ul>
+<li><strong>Executor Framework</strong>
+<ul>
+<li><code>ExecutorService</code>, <code>ThreadPoolExecutor</code></li>
+<li>스레드를 직접 다루지 않도록 <strong>task</strong>로 추상화</li>
+<li>스레드 풀 관리의 복잡함을 은닉화</li>
+</ul>
+</li>
+<li><strong>Lock &amp; Condition</strong>
+<ul>
+<li><code>ReentrantLock</code>, <code>ReadWriteLock</code></li>
+<li><code>synchronized</code> 보다 유연한 잠금 기능 제공</li>
+<li>타임아웃, 인터럽트, 공정성 제어</li>
+</ul>
+</li>
+<li><strong>Atomic Variables</strong>
+<ul>
+<li><code>AtomicInteger</code>, <code>AtomicReference</code></li>
+<li>CAS(Compare-And-Swap) 기반으로 작동</li>
+<li>Lock-free 알고리즘을 보장하는 구성 요소</li>
+</ul>
+</li>
+<li><strong>Concurrent Collections</strong>
+<ul>
+<li><code>ConcurrentHashMap</code>: 세그먼트 기반 락</li>
+<li><code>CopyOnWriteArrayList</code>: 읽기 최적화 방식</li>
+<li><code>BlockingQueue</code>: Producer-Consumer 패턴</li>
+</ul>
+</li>
+<li><strong>Synchronizers</strong>
+<ul>
+<li><code>CountDownLatch</code>, <code>CyclicBarrier</code>, <code>Semaphore</code></li>
+<li>스레드 간 협력 패턴의 추상화</li>
+</ul>
+</li>
+</ul>
+<p>JSR-166에서 전하는 메시지는 명확하다.<br>
+바로 <strong>&ldquo;스레드를 직접 다루지 말고 고수준으로 추상화한 동시성 라이브러리를 활용하자&rdquo;</strong> 라는 것.</p>
+<h2 id="3-akka--rxjava">3. Akka / RxJava</h2>
+<p>Java 언어 차원에서 스레드 추상화 기법이 제공되었지만, 이 방식에는 고질적인 문제가 있다.</p>
+
+<div class="px-2 mb-2">
+  
+  <script src="https://utteranc.es/client.js"
+    repo="nmin11/nmin11.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+  
 </div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/5-tech-blog-feed-discord-bot/">
-  
-  <div class="relative">
-    <img src="/thumbnail/feednyang.webp" alt="디스코드 RSS 피드 봇 개발기" class="rounded-lg shadow-sm w-full h-52 object-cover" />
-    
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Oct 3, 2025
-    </div>
-    
-  </div>
-  
-  <div class="my-2 text-xl font-semibold">디스코드 RSS 피드 봇 개발기</div>
-  <div>Claude Code, Pulumi와 함께 미니 프로젝트 개발해보기</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/" lang="en">English</a>
-    </div>
-
-</div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/4-major-gc-algorithms/">
-  
-  <div class="relative">
-    <img src="/thumbnail/garbage-collectors.webp" alt="주요 GC 알고리즘들" class="rounded-lg shadow-sm w-full h-52 object-cover" />
-    
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Mar 14, 2024
-    </div>
-    
-  </div>
-  
-  <div class="my-2 text-xl font-semibold">주요 GC 알고리즘들</div>
-  <div>주요 가비지 컬렉션 알고리즘들에 대해 알아보자</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/4-major-gc-algorithms/" lang="en">English</a>
-    </div>
-
-</div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/">
-  
-  <div class="relative">
-    <img src="/thumbnail/silver-bullet.webp" alt="AWS CDK는 은탄환이 아니다" class="rounded-lg shadow-sm w-full h-52 object-cover" />
-    
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Aug 12, 2023
-    </div>
-    
-  </div>
-  
-  <div class="my-2 text-xl font-semibold">AWS CDK는 은탄환이 아니다</div>
-  <div>올바른 IaC 도구 사용을 위해</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="en">English</a>
-    </div>
-
-</div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/2-s3-access-denied-error/">
-  
-  <div class="relative">
-    <img src="/thumbnail/green-bucket.webp" alt="의문의 S3 Access Denied 에러" class="rounded-lg shadow-sm w-full h-52 object-cover" />
-    
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Jul 1, 2023
-    </div>
-    
-  </div>
-  
-  <div class="my-2 text-xl font-semibold">의문의 S3 Access Denied 에러</div>
-  <div>트리거된 객체를 조회하는 과정에서 발생한 Access Denied 에러</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/2-s3-access-denied-error/" lang="en">English</a>
-    </div>
-
-</div>
-<div class="p-2">
-<a href="https://nmin11.github.io/kr/blog/1-make-tech-blog-with-github-pages/">
-  
-  <div class="relative">
-    <img src="/thumbnail/hugo-logo.webp" alt="Github Pages로 만드는 나만의 기술 블로그" class="rounded-lg shadow-sm w-full h-52 object-cover" />
-    
-    <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
-      Feb 11, 2023
-    </div>
-    
-  </div>
-  
-  <div class="my-2 text-xl font-semibold">Github Pages로 만드는 나만의 기술 블로그</div>
-  <div>Hugo &#43; Github Pages</div>
-</a>
-
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/1-make-tech-blog-with-github-pages/" lang="en">English</a>
-    </div>
-
-</div>
-
-  </div>
-
-  <div class="bg-blue-100 dark:bg-gray-900">
+</article><div class="bg-blue-100 dark:bg-gray-900">
   <div class="container px-4 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
     <div>
       <div class="text-2xl font-bold mb-2">Contact me</div>
@@ -645,7 +725,7 @@
 
 
 
-<script src="https://nmin11.github.io/js/scripts.min.js"></script>
+<script src="http://localhost:1313/js/scripts.min.js"></script>
 
 
 
