@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ide on Loko</title>
+    <link>https://nmin11.github.io/en/tags/ide/</link>
+    <description>Recent content in Ide on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s Learn IntelliJ IDEA</title>
+      <link>https://nmin11.github.io/en/blog/7-lets-learn-intellij-idea/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/en/blog/7-lets-learn-intellij-idea/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;All keyboard shortcuts introduced in this post are based on Mac OS.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;0-introduction-ide-proficiency-directly-impacts-productivity&#34;&gt;0. Introduction: IDE Proficiency Directly Impacts Productivity&lt;/h2&gt;&#xA;&lt;p&gt;After the era of vi, which involved editing text in terminals, GUI-based IDEs like Turbo Pascal and Visual Basic began to emerge in the 1980s.&#xA;Furthermore, modern IDEs that appeared after the 2000s, such as VS Code, Eclipse, and IntelliJ, evolved beyond mere &amp;rsquo;editors&amp;rsquo; by supporting code auto-completion, real-time error checking, project management, version control integration, and refactoring tools, transforming IDEs into intelligent tools.&#xA;Today&amp;rsquo;s IDEs contain decades of accumulated know-how for boosting developer productivity.&#xA;Even now, as AI Code Generation capabilities continue to expand, IDE proficiency remains essential for editing and fine-tuning the vast amounts of code that AI produces.&#xA;That&amp;rsquo;s why I decided to write this post to reassess my own IDE skills at this particular moment.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

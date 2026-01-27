@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ide on 로코</title>
+    <link>https://nmin11.github.io/kr/tags/ide/</link>
+    <description>Recent content in Ide on 로코</description>
+    <generator>Hugo</generator>
+    <language>kr</language>
+    <lastBuildDate>Tue, 27 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/kr/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IntelliJ IDEA를 공부해보자</title>
+      <link>https://nmin11.github.io/kr/blog/7-lets-learn-intellij-idea/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/kr/blog/7-lets-learn-intellij-idea/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📢 본 포스트에서 소개되는 모든 단축키들은 Mac OS 기준으로 작성되었습니다.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;0-서론-생산성과-직결되는-ide-활용-능력&#34;&gt;0. 서론: 생산성과 직결되는 IDE 활용 능력&lt;/h2&gt;&#xA;&lt;p&gt;터미널에서 텍스트를 수정하는 방식의 vi를 지나, 1980년대 이후에는 Turbo Pascal, Visual Basic 등의 GUI 기반 IDE가 본격적으로 등장하기 시작했다.&lt;br&gt;&#xA;더 나아가 2000년대 이후에 등장한 VS Code, Eclipse, IntelliJ 등의 최신 IDE들은 &amp;lsquo;에디터&amp;rsquo; 수준에서 벗어나 코드 자동 완성, 실시간 오류 검사, 프로젝트 관리, 버전 관리 통합, 리팩토링 도구 등을 지원하며 IDE를 지능형 도구로 발전시켰다.&lt;br&gt;&#xA;현 시대의 IDE들에는 개발자의 생산성을 끌어올리기 위한 노하우들이 수십 년에 걸쳐 쌓여 있다.&lt;br&gt;&#xA;AI의 Code Generation 기능이 확장되고 있는 지금에 이르러서도 AI가 생산해내는 방대한 양의 코드를 편집하고, 세심하게 튜닝하기 위해서는 IDE 활용 능력이 필수적이다.&lt;br&gt;&#xA;그래서 오히려 지금 이 시기에 스스로의 IDE 활용 능력을 되짚어보고자 이 글을 작성하게 되었다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
