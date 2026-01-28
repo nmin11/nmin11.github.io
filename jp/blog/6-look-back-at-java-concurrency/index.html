@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="jp" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.svg">
+
+  <title>
+  Java並行性を振り返る - ロコ
+  </title>
+  <meta name="description" content="Javaエコシステムで20年間、並行性をどのように扱ってきたか" />
+  <meta name="author" content="Loko" />
+  <meta name="generator" content="Hugo 0.151.0"><link
+    rel="stylesheet"
+    href="https://nmin11.github.io/css/styles.min.349760f36db0d3a694ca07bab2490f2724dca032ae02dc9fdfa21b8a1aa60df3.css"
+    integrity="sha256-NJdg822w06aUyge6skkPJyTcoDKuAtyf36IbihqmDfM="
+  />
+  
+  
+
+  <meta property="og:url" content="https://nmin11.github.io/jp/blog/6-look-back-at-java-concurrency/">
+  <meta property="og:site_name" content="ロコ">
+  <meta property="og:title" content="Java並行性を振り返る">
+  <meta property="og:description" content="Javaエコシステムで20年間、並行性をどのように扱ってきたか">
+  <meta property="og:locale" content="jp">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Concurrency">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Java並行性を振り返る">
+  <meta name="twitter:description" content="Javaエコシステムで20年間、並行性をどのように扱ってきたか">
+
+  
+  <meta itemprop="name" content="Java並行性を振り返る">
+  <meta itemprop="description" content="Javaエコシステムで20年間、並行性をどのように扱ってきたか">
+  <meta itemprop="datePublished" content="2025-12-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="363">
+  <meta itemprop="keywords" content="Java,Concurrency">
+
+  
+  <meta name="lang" content="jp" />
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://nmin11.github.io/jp/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/loko-logo.webp" alt="ロコ" class="h-8 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/jp/about">紹介</a></li>
+    
+    <li><a href="/jp/blog">ブログ</a></li>
+    
+
+    
+    
+    <li class="relative cursor-pointer">
+      <span class="language-switcher flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="9" />
+          <line x1="3.6" y1="9" x2="20.4" y2="9" />
+          <line x1="3.6" y1="15" x2="20.4" y2="15" />
+          <path d="M11.5 3a17 17 0 0 0 0 18" />
+          <path d="M12.5 3a17 17 0 0 1 0 18" />
+        </svg>
+        <a>言語</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 15l-6 -6l-6 6h12" transform="rotate(180 12 12)" />
+        </svg>
+      </span>
+      <div
+        class="language-dropdown absolute top-full mt-2 left-0 flex-col gap-2 bg-gray-100 dark:bg-gray-900 dark:text-white z-10 hidden">
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/kr/" lang="kr">Korean</a>
+        
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/en/" lang="en">English</a>
+        
+        
+        
+        
+      </div>
+    </li>
+    
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="open-search inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+        </svg>
+      </span>
+    </li>
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/thumbnail/loom.webp" class="rounded-lg shadow-sm w-full object-contain" />
+    
+    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      December 10, 2025
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Java並行性を振り返る</h1>
+    
+    <h5 class="text-sm flex items-center flex-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      投稿日 December 10, 2025
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      2分で読めます
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      363文字
+      
+        &nbsp;&bull;&nbsp;言語を選択: &nbsp;<a href="https://nmin11.github.io/kr/blog/6-look-back-at-java-concurrency/" lang="kr">Korean</a>、<a href="https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/" lang="en">English</a>
+      
+    </h5>
+    
+
+    <details id="TableOfContents" class="px-4 mt-4 bg-gray-100 dark:bg-gray-700 rounded toc">
+    <summary class="flex items-center font-bold py-2 px-4 cursor-pointer justify-between select-none text-black dark:text-white">
+      <span>Table of contents</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <polyline points="6 9 12 15 18 9"></polyline>
+     </svg>
+    </summary>
+
+    <ul class="mt-2 pb-4">
+        
+
+        
+        <li>
+        <a href="#0-%e5%ba%8f%e8%ab%96">0. 序論</a>
+        
+
+        
+        </li><li>
+        <a href="#1-the-free-lunch-is-over2004">1. The Free Lunch Is Over（2004）</a>
+        
+
+        
+        </li><li>
+        <a href="#2-jsr-1331662004">2. JSR-133/166（2004）</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#jsr-133">JSR-133</a>
+        
+
+        
+        </li><li>
+        <a href="#jsr-166">JSR-166</a>
+        
+
+        
+        </li></ul>
+      </li><li>
+        <a href="#3-akka--rxjava">3. Akka / RxJava</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#akka2009">Akka（2009）</a>
+        
+
+        
+        </li><li>
+        <a href="#rxjava2013">RxJava（2013）</a>
+        
+
+        
+        </li></ul>
+      </li><li>
+        <a href="#4-reactive-manifesto2013">4. Reactive Manifesto（2013）</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#responsive%e5%bf%9c%e7%ad%94%e6%80%a7">Responsive（応答性）</a>
+        
+
+        
+        </li><li>
+        <a href="#resilient%e5%9b%9e%e5%be%a9%e5%8a%9b">Resilient（回復力）</a>
+        
+
+        
+        </li><li>
+        <a href="#elastic%e5%bc%be%e5%8a%9b%e6%80%a7">Elastic（弾力性）</a>
+        
+
+        
+        </li><li>
+        <a href="#message-driven%e3%83%a1%e3%83%83%e3%82%bb%e3%83%bc%e3%82%b8%e9%a7%86%e5%8b%95">Message Driven（メッセージ駆動）</a>
+        
+
+        
+        </li></ul>
+      </li><li>
+        <a href="#5-spring-webflux2017">5. Spring WebFlux（2017）</a>
+        
+
+        
+        </li><li>
+        <a href="#6-project-loom2023">6. Project Loom（2023）</a>
+        
+
+        
+        </li><li>
+        <a href="#7-%e7%b5%90%e8%ab%96">7. 結論</a>
+        
+
+        
+        </li><li>
+        <a href="#references">References</a>
+        </li></ul>
+  </details>
+
+    <h2 id="0-序論">0. 序論</h2>
+<p>恥ずかしながら今年、バックエンドブートキャンプ課程を修了しながら**「並行性」**というキーワードを初めて接した。
+実はブートキャンプを修了する過程で様々なLock方式を実習しながら並行性を制御する方法は十分に習得できた。
+しかし問題を解決する方法だけに集中するよりは「並行性」について本質的な理解をしてから進むべきだと思った。そうすれば今後もバックエンド開発者としての専門的な視野を持てるはずだ。
+そこで並行性プログラミングとは何か、またJava陣営で並行性を扱う方法がどのように発展してきたかを見てみることにした。</p>
+<h2 id="1-the-free-lunch-is-over2004">1. The Free Lunch Is Over（2004）</h2>
+<p>2004年12月、Microsoftの開発者だったHerb Sutterという方が<a href="http://www.gotw.ca/publications/concurrency-ddj.htm" target="_blank" rel="noopener">The Free Lunch Is Over</a>
+という記事を発表した。
+この記事は以下の強烈なスローガンとともに始まる。</p>
+<blockquote>
+<p>The biggest sea change in software development since the OO revolution is knocking at the door, and its name is <strong>Concurrency</strong>.</p></blockquote>
+<blockquote>
+<p>オブジェクト指向革命以来最大の変化の波がソフトウェア開発の扉を叩いている。それは<strong>並行性</strong>だ。</p></blockquote>
+<p>Herb Sutterは1965年に「半導体に集積されるトランジスタの数が毎年2倍に増加する」と主張した<em>ムーアの法則</em>が徐々に限界に達していると説明する。
+2001年8月にIntelチップのCPUクロック速度は2GHzだったが、この記事が発表された2004年12月にも4GHzの速度を持つCPUは登場していなかったと述べている。
+実際4GHzのクロック速度はそう遠くない将来に達成できそうに見えるが、果たして10GHzのクロック速度を達成できるだろうか？
+残念ながら限られた半導体容積内に過度に多くのトランジスタを集積すると発熱、消費電力、電流リークの問題が発生するため、より高いクロック速度を達成することはますます難しくなる。
+そのため2025年現在でも高性能CPUが出せる最大クロック速度は6GHz程度のレベルにとどまっている。</p>
+<p>これに対しHerb Sutterは、開発者が毎年コンピューターのアップグレード要請だけすれば自動的に性能を引き上げられた**「タダ飯」**がすでに1〜2年前に終わったと述べ、現代のアプリケーションの幾何級数的に高まるCPU処理量に備えるために並行性プログラミングがますます重要になると強調する。
+またJavaのようなプログラミング言語レベルでも並行性プログラミングモデルが切実に必要だと言及する。</p>
+<h2 id="2-jsr-1331662004">2. JSR-133/166（2004）</h2>
+<p>このような流れに合わせてJCP（Java Community Process）は2004年にJSR（Java Specification Request）133および166を承認する。
+上記2つのスペックを通じてJava言語は並行性プログラミングを実行できる言語として確固たる地位を築いた。
+どのような変更があったか簡潔に見てみよう。</p>
+<h3 id="jsr-133">JSR-133</h3>
+<p>実はJava言語は1.0の時からJMM（Java Memory Model）を通じてマルチスレッドを扱うことができた。
+しかし<code>final</code>フィールドの値を変更できたり、同期化のための再配列を許可しないなど深刻な欠陥が存在した。</p>
+<blockquote>
+<p><strong>再配列</strong>：コンパイラ、JIT、キャッシュなど様々な要因により演算の順序はコード上の流れと異なることがあるが、同期化作業を行うにはコンパイラ、ランタイム、ハードウェアはまるで直列実行されるように共謀（協力）しなければならず、この過程を「再配列」と呼ぶ</p></blockquote>
+<p>そのためJSR-133はJMMの欠陥を改善し、<code>volatile</code>、<code>synchronized</code>、<code>final</code>キーワードが直感的に動作することを核心目標として進められた。
+開発者がマルチスレッドプログラムがどのようにメモリと相互作用するか自信を持って推論できるよう助け、様々な有名アーキテクチャを正確性と高性能を兼ね備えて実装できるよう提供しようとした。
+概略的な改善事項は以下の通り。</p>
+<ul>
+<li><strong>Happens-Before</strong>
+<ul>
+<li>先に発生した動作は先に「配列」され、以降の動作で読み取れるよう保証</li>
+<li>スレッドの各作業は該当スレッドの次の作業より<strong>先に発生</strong></li>
+<li>モニターのロック解除は該当モニターの後続ロックより<strong>先に発生</strong></li>
+<li><code>volatile</code>フィールドへの書き込みは該当<code>volatile</code>フィールドへの後続読み取りより<strong>先に発生</strong></li>
+<li>すべてのメモリ作業はモニターロック解除前に発生し、モニター解除はロック取得前に発生</li>
+</ul>
+</li>
+<li><code>volatile</code>
+<ul>
+<li>スレッド間で状態値をやり取りできる特殊フィールドの役割を果たす</li>
+<li>フィールドの値はメインメモリにflushされ、すべてのスレッドで即座に見ることができる</li>
+<li>つまり、プログラマーが該当フィールドをキャッシング、再配列などにより「古い」値として表示されることを許可しないと表示したもの</li>
+<li>従来は単にキャッシュの代わりにメモリ直接アクセスの意味だったが、追加でMemory Barrierの役割も果たすようになった</li>
+</ul>
+</li>
+</ul>
+<h3 id="jsr-166">JSR-166</h3>
+<p>JSR-166ではスペックリードだったDoug Leaの主導の下、並行性を扱うパラダイムを**「言語サポート方式」<strong>から</strong>「ライブラリサポート方式」**へ転換した。
+JSR-133ではlow-levelの言語レベルでメモリモデルを提供したが、JSR-166ではhigh-levelで抽象化ツールを提供したのだ。
+抽象化ツールは<code>java.util.concurrent</code>パッケージとともに提供され、核心的な構成要素は以下の通り。</p>
+<ul>
+<li><strong>Executor Framework</strong>
+<ul>
+<li><code>ExecutorService</code>、<code>ThreadPoolExecutor</code></li>
+<li>スレッドを直接扱わないよう<strong>task</strong>として抽象化</li>
+<li>スレッドプール管理の複雑さを隠蔽化</li>
+</ul>
+</li>
+<li><strong>Lock &amp; Condition</strong>
+<ul>
+<li><code>ReentrantLock</code>、<code>ReadWriteLock</code></li>
+<li><code>synchronized</code>より柔軟なロック機能を提供</li>
+<li>タイムアウト、インタラプト、公平性制御</li>
+</ul>
+</li>
+<li><strong>Atomic Variables</strong>
+<ul>
+<li><code>AtomicInteger</code>、<code>AtomicReference</code></li>
+<li>CAS（Compare-And-Swap）ベースで動作</li>
+<li>Lock-freeアルゴリズムを保証する構成要素</li>
+</ul>
+</li>
+<li><strong>Concurrent Collections</strong>
+<ul>
+<li><code>ConcurrentHashMap</code>：セグメントベースロック</li>
+<li><code>CopyOnWriteArrayList</code>：読み取り最適化方式</li>
+<li><code>BlockingQueue</code>：Producer-Consumerパターン</li>
+</ul>
+</li>
+<li><strong>Synchronizers</strong>
+<ul>
+<li><code>CountDownLatch</code>、<code>CyclicBarrier</code>、<code>Semaphore</code></li>
+<li>スレッド間協力パターンの抽象化</li>
+</ul>
+</li>
+</ul>
+<p>JSR-166が伝えるメッセージは明確だ。
+つまり**「スレッドを直接扱わず高水準に抽象化した並行性ライブラリを活用しよう」**ということ。</p>
+<h2 id="3-akka--rxjava">3. Akka / RxJava</h2>
+<p>Java言語レベルでスレッド抽象化技法が提供されたが、この方式には根本的な問題がある。
+つまりLockベースプログラミングの特性上Race Conditionが発生せざるを得ず、そのため高い次元の並行性環境ではスケーラビリティに限界があるという点だ。
+これにより2000年代後半、JVMエコシステムでは**「共有しなければ同期化する必要がない」**という原則ベースのパラダイムが生まれた。</p>
+<h3 id="akka2009">Akka（2009）</h3>
+<p>AkkaはActorモデルを基盤に動作する。
+1973年、Carl HewittがMITでActorモデル理論を発表し、これを基盤に1986年に実装された言語がErlangだ。
+そしてこのようなActorモデルの哲学をJonas BonérがScalaおよびJVMフレームワークとして実装したのが<strong>Akka</strong>だ。</p>
+<img src="/blog/actor-graph.png">
+<p>ActorモデルはLockを使用せず、代わりにカプセル化を強制する。
+シグナルに反応する協力エンティティで構成されており、互いにシグナルを送ることでアプリケーション全体が動作する。
+これは実際に世界がコミュニケーションする方式とも類似した動作方式と言える。
+Akkaの大まかな概念は以下の通り。</p>
+<ul>
+<li>構成要素
+<ul>
+<li>Mailbox：メッセージ待機列</li>
+<li>Behavior：Actorの状態、内部変数などを含む</li>
+<li>Message：シグナル（signal）のデータ片、パラメータおよびメソッド呼び出しに類似</li>
+</ul>
+</li>
+<li>カプセル化
+<ul>
+<li>まるでオブジェクトがメソッド呼び出しに反応するように、Actorはメッセージに反応する</li>
+<li>受信者Actorは他のActorとは関係なく独立して実行され、受信したメッセージを順次処理</li>
+<li>したがってActorの不変性は同期化なしに維持され、Lockは不要</li>
+<li>異なるActor同士はそれぞれ受け取ったメッセージを同時に処理することになる</li>
+</ul>
+</li>
+<li>エラー処理
+<ul>
+<li>一般的なエラーの場合
+<ul>
+<li>カプセル化されたActorは損傷せず、作業にのみエラーが発生</li>
+<li>サービスActorがエラーメッセージを返信</li>
+</ul>
+</li>
+<li>サービス内部エラーの場合
+<ul>
+<li>すべてのActorはツリー構造で構成されている</li>
+<li>もし子Actorに障害が発生したら、親Actorで障害対応方式を決定</li>
+<li>親Actorが終了する時、子Actorも再帰的に終了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>核心概念
+<ul>
+<li><strong>カプセル化</strong>：各Actorは独立した状態を持ち、外部から直接アクセス不可能</li>
+<li><strong>メッセージパッシング</strong>：メソッド呼び出し方式の代わりに非同期メッセージ送信方式を活用</li>
+<li><strong>順次処理</strong>：各Actorは一度に1つのメッセージのみ処理</li>
+</ul>
+</li>
+</ul>
+<h3 id="rxjava2013">RxJava（2013）</h3>
+<p>2009年、MicrosoftでRx.NETを開発することでReactive Programmingパターンを確立した。
+これを基盤に2013年にNetflixはRxJavaを開発してReactiveXパターンをJVMに移植した。
+RxJavaコードの形態は以下の通り。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Observable<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> videos <span style="color:#ff79c6">=</span> getVideos()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">flatMap</span>(video <span style="color:#ff79c6">-&gt;</span> getMetadata(video))
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">filter</span>(metadata <span style="color:#ff79c6">-&gt;</span> metadata.<span style="color:#50fa7b">rating</span> <span style="color:#ff79c6">&gt;</span> 4.<span style="color:#50fa7b">0</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">map</span>(metadata <span style="color:#ff79c6">-&gt;</span> metadata.<span style="color:#50fa7b">title</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">timeout</span>(1, TimeUnit.<span style="color:#50fa7b">SECONDS</span>);
+</span></span></code></pre></div><p>RxJavaを活用すればサービスへの呼び出しを並列で実行し結果を組み合わせる方式を使えるようになる。
+RxJavaについても核心的な概念を整理してみた。</p>
+<ul>
+<li>PullベースのIterableの代わりにPushベースのObservable
+<ul>
+<li>値は非同期的にpushされる</li>
+<li>これによりサービス層全体を非同期化</li>
+</ul>
+</li>
+<li>各サービス層ができるようになったこと
+<ul>
+<li>条件付きキャッシュの即時返却</li>
+<li>リソースが制限されている場合、スレッドを使用せずにブロッキング</li>
+<li>マルチスレッド活用</li>
+<li>non-blocking IOの使用</li>
+</ul>
+</li>
+<li>API呼び出しに伴うすべての動作は非同期的に動作するが、内部的にblockingかnon-blockingかを選択する方式</li>
+<li>核心
+<ul>
+<li><strong>Composability</strong>：複雑な非同期ロジックを演算子で組み合わせ</li>
+<li><strong>Backpressure</strong>：生産者-消費者の速度不一致処理</li>
+<li><strong>Thread-safety</strong>：不変データストリームで共有状態を回避</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-reactive-manifesto2013">4. Reactive Manifesto（2013）</h2>
+<p>並行性革命が始まった後、上記のように様々なアプローチが乱立するようになった。
+Akkaを創設したJonas Bonérはそれぞれ異なる解決策の間で共通点を発見し、すぐに同僚たちと原則を整理して発表するに至る。</p>
+<p><a href="https://www.reactivemanifesto.org/ko" target="_blank" rel="noopener">Reactive Manifesto</a>
+</p>
+<p>Reactive宣言文は4つの核心原則を含んでいる。</p>
+<h3 id="responsive応答性">Responsive（応答性）</h3>
+<ul>
+<li>システムは可能な限り即座に一貫した応答をすべきだ</li>
+<li>一貫したサービス品質提供を通じてシステム信頼性を確保</li>
+<li>エラー処理を簡素化しユーザーの新しいインタラクションを促進</li>
+<li><strong>予測可能な品質のサービス</strong></li>
+</ul>
+<h3 id="resilient回復力">Resilient（回復力）</h3>
+<ul>
+<li>システムに障害があっても応答性は維持されるべきだ</li>
+<li><strong>複製、封じ込め、隔離、委任</strong>を通じて達成すること</li>
+<li>障害はシステム全体のリスクにつながるべきではなく、回復が可能であることを保証すべきだ</li>
+<li>障害は正常の一部（「Let it crash」哲学）</li>
+</ul>
+<h3 id="elastic弾力性">Elastic（弾力性）</h3>
+<ul>
+<li>システムの作業処理量が変わっても応答性は維持されるべきだ</li>
+<li>入力に応じて<strong>割り当てられたリソースを流動的に変化</strong>させながら対応するシステム</li>
+<li>競合ポイントやボトルネックが発生しないよう設計することが重要</li>
+<li>リアルタイム性能測定ツールを通じて予測可能な規模にスケールするアルゴリズムを導入</li>
+</ul>
+<h3 id="message-drivenメッセージ駆動">Message Driven（メッセージ駆動）</h3>
+<ul>
+<li><strong>非同期メッセージ伝達方式</strong>に依存しよう</li>
+<li>コンポーネント間の疎結合、隔離、位置透過性を保証する方式</li>
+<li>non-blocking通信方式では受信者がアクティブな時のみリソースを消費することになる</li>
+<li>メッセージキューのモニタリングとともにback-pressureを活用</li>
+</ul>
+<h2 id="5-spring-webflux2017">5. Spring WebFlux（2017）</h2>
+<p>Spring Framework 5.0とともにSpring WebFluxがリリースされた。
+これは既存のServletベースのSpring Web MVCとは差別点を持つReactive Stack Web Frameworkであり、以下のような特性を持つ。</p>
+<ul>
+<li>完全なnon-blockingフレームワーク</li>
+<li>Reactive Streams Back Pressureをサポート</li>
+<li>NettyまたはServletコンテナ環境で駆動される</li>
+<li>場合によってはSpring Web MVCとSpring WebFluxが一緒に使用されることもある</li>
+</ul>
+<p>Spring WebFluxはnon-blocking I/Oベースの非同期処理とともに**速い応答性（Responsive）<strong>を保証し、Mono/Fluxを活用して</strong>非同期データストリーム（Message Driven）**を活用するのでReactiveプログラミングフレームワークと見ることができる。
+これによりJava陣営で並行性を扱う方式がフレームワーク段階では確立されたと見られる。</p>
+<h2 id="6-project-loom2023">6. Project Loom（2023）</h2>
+<p>Java 21のProject Loomが解決しようとした問題点は以下の通り。</p>
+<ul>
+<li>既存Javaプラットフォームスレッドの問題点
+<ul>
+<li>JavaプラットフォームスレッドはOSスレッドと1:1マッピングだった</li>
+<li><strong>Memory overhead</strong>：各プラットフォームスレッドは約2MBのスタック空間を活用</li>
+<li><strong>Creation cost</strong>：スレッド生成作業はkernel呼び出し作業（スレッド当たり100–300μs）</li>
+<li><strong>Kernel limits</strong>：ほとんどのシステムはアドレス空間の制約により32K〜65Kスレッドに制限される</li>
+</ul>
+</li>
+<li>Reactive frameworksの問題点
+<ul>
+<li><strong>Cognitive overhead</strong>：開発チームがreactiveパターンを習得するのに6〜12ヶ月かかる</li>
+<li><strong>Debugging complexity</strong>：reactive chains内でスタックトレースを理解するのが難しい</li>
+<li><strong>Library ecosystem</strong>：数多くのJavaライブラリがreactiveシステムには適していない</li>
+<li><strong>Backpressure complexity</strong>：手動的なpressure管理作業によりバグが発生する可能性</li>
+</ul>
+</li>
+</ul>
+<p>実際にNetflixの開発者は以下のような言葉を残したという。</p>
+<blockquote>
+<p>We spent more time debugging reactive chains than we saved in scalability.</p></blockquote>
+<blockquote>
+<p>私たちはスケーラビリティの面で節約した時間より多くの時間をリアクティブチェーンのデバッグに費やした。</p></blockquote>
+<p>Project Loomはこのような問題点を除去しながら革新的な機能を提供してくれる。</p>
+<ul>
+<li><strong>Virtual Threads</strong>：JVMが管理し自動的に解放される軽量スレッド</li>
+<li><strong>Structured Concurrency</strong>：自動的にクリーンアップ作業が行われる階層的タスクスコープ</li>
+<li><strong>Scoped Values</strong>：ThreadLocalパターンを置き換える不変コンテキスト伝播機能</li>
+</ul>
+<p>Project Loomは並行性管理を既存のOSカーネル中心からJVM中心に移し、これによりスケジューリング、メモリ管理、観測を開発者が完璧に制御できるようにした。
+Reactive方式に対するラーニングカーブを減らせる代替策を用意し、Debuggabilityも確保できるようにした。</p>
+<h2 id="7-結論">7. 結論</h2>
+<p><strong>The Free Lunch Is Over</strong>では並行性に関連する問題を認識し、<strong>JSR-133/166</strong>は言語レベルでの解決策を提示した。
+<strong>Akka/RxJava</strong>はJava陣営で並行性を扱うための実験的なアプローチをし、<strong>Reactive Manifesto</strong>を通じてついにReactive哲学が確立された。
+<strong>Spring WebFlux</strong>はReactiveをフレームワークに溶け込ませたが、Javaは<strong>Project Loom</strong>を通じて並行性関連の問題を根本的に再設計した。
+The Free Lunch Is Over発表後20余年が経ったが「並行性革命」はまだ終わっていないようだ。
+しかし今回の機会に並行性を扱うパラダイムが変化する過程を見守りながら、どのような核心的価値が発生したかを知ることができ、今後も並行性プログラミングを扱う時にどのような方式でアプローチすればよいかについての視野と観点を得ることができた。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://www.gotw.ca/publications/concurrency-ddj.htm" target="_blank" rel="noopener">The Free Lunch Is Over</a>
+</li>
+<li><a href="https://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html" target="_blank" rel="noopener">JSR 133 (Java Memory Model) FAQ</a>
+</li>
+<li><a href="https://doc.akka.io/libraries/akka-core/current/typed/guide/actors-intro.html" target="_blank" rel="noopener">How the Actor Model Meets the Needs of Modern, Distributed Systems</a>
+</li>
+<li><a href="https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a" target="_blank" rel="noopener">Reactive Programming in the Netflix API with RxJava</a>
+</li>
+<li><a href="https://www.reactivemanifesto.org/ko" target="_blank" rel="noopener">Reactive Manifesto</a>
+</li>
+<li><a href="https://docs.spring.io/spring-framework/reference/web/webflux.html" target="_blank" rel="noopener">Spring WebFlux</a>
+</li>
+<li><a href="https://medium.com/@dikhyantkrishnadalai/project-loom-virtual-threads-how-java-21-is-revolutionizing-concurrency-582a173b2b12" target="_blank" rel="noopener">Project Loom &amp; Virtual Threads: How Java 21+ Is Revolutionizing Concurrency</a>
+</li>
+</ul>
+
+<div class="px-2 mb-2">
+  
+  <script src="https://utteranc.es/client.js"
+    repo="nmin11/nmin11.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+  
+</div>
+</article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-4 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Contact me</div>
+      <p class="opacity-60">email: nmin1124@gmail.com</p>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+
+    <ul class="flex justify-center gap-x-3 flex-wrap gap-y-2">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="mailto:nmin1124@gmail.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="email"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+          </svg>
+        </a>
+      </li>
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://github.com/nmin11"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+            />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.linkedin.com/in/%EB%AF%BC-%EB%82%A8%EA%B6%81-5b1054265/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <line x1="8" y1="11" x2="8" y2="16" />
+            <line x1="8" y1="8" x2="8" y2="8.01" />
+            <line x1="12" y1="16" x2="12" y2="11" />
+            <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.instagram.com/nmin55/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-instagram"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.youtube.com/channel/UCnZPXm6ka7f1iSEZsPZ7zCw"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-youtube"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+    </ul>
+  </div>
+</div>
+
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2025 - Loko · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+<div class="search-ui absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <span class="p-2 absolute right-0 top-0 cursor-pointer close-search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </span>
+    </div>
+
+    <input type="search" class="py-2 px-3 w-full dark:text-black border dark:border-transparent"
+      placeholder="検索キーワードを入力" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">検索結果</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">検索結果がありません</div>
+      <p class="font-light text-sm">検索キーワードを変更してください</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script src="https://nmin11.github.io/js/scripts.min.js"></script>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE1FBNSDWV"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CE1FBNSDWV');
+        }
+      </script>
+
+
+<script>
+  const languageMenuButton = document.querySelector('.language-switcher');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  languageMenuButton.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    if (languageDropdown.classList.contains('hidden')) {
+      languageDropdown.classList.remove('hidden')
+      languageDropdown.classList.add('flex')
+    } else {
+      languageDropdown.classList.add('hidden');
+      languageDropdown.classList.remove('flex');
+    }
+  })
+</script>
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurrency on ロコ</title>
+    <link>https://nmin11.github.io/jp/tags/concurrency/</link>
+    <description>Recent content in Concurrency on ロコ</description>
+    <generator>Hugo</generator>
+    <language>jp</language>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/jp/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java並行性を振り返る</title>
+      <link>https://nmin11.github.io/jp/blog/6-look-back-at-java-concurrency/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/jp/blog/6-look-back-at-java-concurrency/</guid>
+      <description>&lt;h2 id=&#34;0-序論&#34;&gt;0. 序論&lt;/h2&gt;&#xA;&lt;p&gt;恥ずかしながら今年、バックエンドブートキャンプ課程を修了しながら**「並行性」**というキーワードを初めて接した。&#xA;実はブートキャンプを修了する過程で様々なLock方式を実習しながら並行性を制御する方法は十分に習得できた。&#xA;しかし問題を解決する方法だけに集中するよりは「並行性」について本質的な理解をしてから進むべきだと思った。そうすれば今後もバックエンド開発者としての専門的な視野を持てるはずだ。&#xA;そこで並行性プログラミングとは何か、またJava陣営で並行性を扱う方法がどのように発展してきたかを見てみることにした。&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-the-free-lunch-is-over2004&#34;&gt;1. The Free Lunch Is Over（2004）&lt;/h2&gt;&#xA;&lt;p&gt;2004年12月、Microsoftの開発者だったHerb Sutterという方が&lt;a href=&#34;http://www.gotw.ca/publications/concurrency-ddj.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Free Lunch Is Over&lt;/a&gt;&#xA;という記事を発表した。&#xA;この記事は以下の強烈なスローガンとともに始まる。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The biggest sea change in software development since the OO revolution is knocking at the door, and its name is &lt;strong&gt;Concurrency&lt;/strong&gt;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;オブジェクト指向革命以来最大の変化の波がソフトウェア開発の扉を叩いている。それは&lt;strong&gt;並行性&lt;/strong&gt;だ。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Herb Sutterは1965年に「半導体に集積されるトランジスタの数が毎年2倍に増加する」と主張した&lt;em&gt;ムーアの法則&lt;/em&gt;が徐々に限界に達していると説明する。&#xA;2001年8月にIntelチップのCPUクロック速度は2GHzだったが、この記事が発表された2004年12月にも4GHzの速度を持つCPUは登場していなかったと述べている。&#xA;実際4GHzのクロック速度はそう遠くない将来に達成できそうに見えるが、果たして10GHzのクロック速度を達成できるだろうか？&#xA;残念ながら限られた半導体容積内に過度に多くのトランジスタを集積すると発熱、消費電力、電流リークの問題が発生するため、より高いクロック速度を達成することはますます難しくなる。&#xA;そのため2025年現在でも高性能CPUが出せる最大クロック速度は6GHz程度のレベルにとどまっている。&lt;/p&gt;&#xA;&lt;p&gt;これに対しHerb Sutterは、開発者が毎年コンピューターのアップグレード要請だけすれば自動的に性能を引き上げられた**「タダ飯」**がすでに1〜2年前に終わったと述べ、現代のアプリケーションの幾何級数的に高まるCPU処理量に備えるために並行性プログラミングがますます重要になると強調する。&#xA;またJavaのようなプログラミング言語レベルでも並行性プログラミングモデルが切実に必要だと言及する。&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-jsr-1331662004&#34;&gt;2. JSR-133/166（2004）&lt;/h2&gt;&#xA;&lt;p&gt;このような流れに合わせてJCP（Java Community Process）は2004年にJSR（Java Specification Request）133および166を承認する。&#xA;上記2つのスペックを通じてJava言語は並行性プログラミングを実行できる言語として確固たる地位を築いた。&#xA;どのような変更があったか簡潔に見てみよう。&lt;/p&gt;&#xA;&lt;h3 id=&#34;jsr-133&#34;&gt;JSR-133&lt;/h3&gt;&#xA;&lt;p&gt;実はJava言語は1.0の時からJMM（Java Memory Model）を通じてマルチスレッドを扱うことができた。&#xA;しかし&lt;code&gt;final&lt;/code&gt;フィールドの値を変更できたり、同期化のための再配列を許可しないなど深刻な欠陥が存在した。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;再配列&lt;/strong&gt;：コンパイラ、JIT、キャッシュなど様々な要因により演算の順序はコード上の流れと異なることがあるが、同期化作業を行うにはコンパイラ、ランタイム、ハードウェアはまるで直列実行されるように共謀（協力）しなければならず、この過程を「再配列」と呼ぶ&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;そのためJSR-133はJMMの欠陥を改善し、&lt;code&gt;volatile&lt;/code&gt;、&lt;code&gt;synchronized&lt;/code&gt;、&lt;code&gt;final&lt;/code&gt;キーワードが直感的に動作することを核心目標として進められた。&#xA;開発者がマルチスレッドプログラムがどのようにメモリと相互作用するか自信を持って推論できるよう助け、様々な有名アーキテクチャを正確性と高性能を兼ね備えて実装できるよう提供しようとした。&#xA;概略的な改善事項は以下の通り。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

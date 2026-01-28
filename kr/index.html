@@ -60,23 +60,39 @@
 
     
     
-    <li class="flex items-center">
-      
-      
-      
-      
-      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
-        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <circle cx="12" cy="12" r="9" />
-        <line x1="3.6" y1="9" x2="20.4" y2="9" />
-        <line x1="3.6" y1="15" x2="20.4" y2="15" />
-        <path d="M11.5 3a17 17 0 0 0 0 18" />
-        <path d="M12.5 3a17 17 0 0 1 0 18" />
-      </svg>
-      <a href="/en/" lang="en">English</a>
-      
-      
+    <li class="relative cursor-pointer">
+      <span class="language-switcher flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="9" />
+          <line x1="3.6" y1="9" x2="20.4" y2="9" />
+          <line x1="3.6" y1="15" x2="20.4" y2="15" />
+          <path d="M11.5 3a17 17 0 0 0 0 18" />
+          <path d="M12.5 3a17 17 0 0 1 0 18" />
+        </svg>
+        <a>Language</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 15l-6 -6l-6 6h12" transform="rotate(180 12 12)" />
+        </svg>
+      </span>
+      <div
+        class="language-dropdown absolute top-full mt-2 left-0 flex-col gap-2 bg-gray-100 dark:bg-gray-900 dark:text-white z-10 hidden">
+        
+        
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/en/" lang="en">English</a>
+        
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/jp/" lang="jp">日本語</a>
+        
+        
+      </div>
     </li>
     
     
@@ -141,7 +157,7 @@
   <div>IDE 활용법 숙지를 통해 생산성 극대화하기</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/7-lets-learn-intellij-idea/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/7-lets-learn-intellij-idea/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/7-lets-learn-intellij-idea/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -161,7 +177,7 @@
   <div>Java 생태계에서 20년 간 동시성을 어떻게 다뤄왔는가</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/6-look-back-at-java-concurrency/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/6-look-back-at-java-concurrency/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -181,7 +197,7 @@
   <div>Claude Code, Pulumi와 함께 미니 프로젝트 개발해보기</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/5-tech-blog-feed-discord-bot/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/5-tech-blog-feed-discord-bot/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -201,7 +217,7 @@
   <div>주요 가비지 컬렉션 알고리즘들에 대해 알아보자</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/4-major-gc-algorithms/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/4-major-gc-algorithms/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/4-major-gc-algorithms/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -221,7 +237,7 @@
   <div>올바른 IaC 도구 사용을 위해</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -241,7 +257,7 @@
   <div>트리거된 객체를 조회하는 과정에서 발생한 Access Denied 에러</div>
 </a>
 
-  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/2-s3-access-denied-error/" lang="en">English</a>
+  <div style="font-style: italic;font-size: smaller;">다른 언어 선택: <a href="https://nmin11.github.io/en/blog/2-s3-access-denied-error/" lang="en">English</a>, <a href="https://nmin11.github.io/jp/blog/2-s3-access-denied-error/" lang="jp">日本語</a>
     </div>
 
 </div>
@@ -672,6 +688,21 @@
         }
       </script>
 
+
+<script>
+  const languageMenuButton = document.querySelector('.language-switcher');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  languageMenuButton.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    if (languageDropdown.classList.contains('hidden')) {
+      languageDropdown.classList.remove('hidden')
+      languageDropdown.classList.add('flex')
+    } else {
+      languageDropdown.classList.add('hidden');
+      languageDropdown.classList.remove('flex');
+    }
+  })
+</script>
 
 
 

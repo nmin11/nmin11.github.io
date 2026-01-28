@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="jp" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.svg">
+
+  <title>
+  AWS CDKは銀の弾丸ではない - ロコ
+  </title>
+  <meta name="description" content="正しいIaCツールの使用のために" />
+  <meta name="author" content="Loko" />
+  <meta name="generator" content="Hugo 0.151.0"><link
+    rel="stylesheet"
+    href="https://nmin11.github.io/css/styles.min.349760f36db0d3a694ca07bab2490f2724dca032ae02dc9fdfa21b8a1aa60df3.css"
+    integrity="sha256-NJdg822w06aUyge6skkPJyTcoDKuAtyf36IbihqmDfM="
+  />
+  
+  
+
+  <meta property="og:url" content="https://nmin11.github.io/jp/blog/3-aws-cdk-is-not-a-silver-bullet/">
+  <meta property="og:site_name" content="ロコ">
+  <meta property="og:title" content="AWS CDKは銀の弾丸ではない">
+  <meta property="og:description" content="正しいIaCツールの使用のために">
+  <meta property="og:locale" content="jp">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-08-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-12T00:00:00+00:00">
+    <meta property="article:tag" content="Aws">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AWS CDKは銀の弾丸ではない">
+  <meta name="twitter:description" content="正しいIaCツールの使用のために">
+
+  
+  <meta itemprop="name" content="AWS CDKは銀の弾丸ではない">
+  <meta itemprop="description" content="正しいIaCツールの使用のために">
+  <meta itemprop="datePublished" content="2023-08-12T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-12T00:00:00+00:00">
+  <meta itemprop="wordCount" content="73">
+  <meta itemprop="keywords" content="Aws">
+
+  
+  <meta name="lang" content="jp" />
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://nmin11.github.io/jp/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/loko-logo.webp" alt="ロコ" class="h-8 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/jp/about">紹介</a></li>
+    
+    <li><a href="/jp/blog">ブログ</a></li>
+    
+
+    
+    
+    <li class="relative cursor-pointer">
+      <span class="language-switcher flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="9" />
+          <line x1="3.6" y1="9" x2="20.4" y2="9" />
+          <line x1="3.6" y1="15" x2="20.4" y2="15" />
+          <path d="M11.5 3a17 17 0 0 0 0 18" />
+          <path d="M12.5 3a17 17 0 0 1 0 18" />
+        </svg>
+        <a>言語</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 15l-6 -6l-6 6h12" transform="rotate(180 12 12)" />
+        </svg>
+      </span>
+      <div
+        class="language-dropdown absolute top-full mt-2 left-0 flex-col gap-2 bg-gray-100 dark:bg-gray-900 dark:text-white z-10 hidden">
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/kr/" lang="kr">Korean</a>
+        
+        
+        
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/en/" lang="en">English</a>
+        
+        
+        
+        
+      </div>
+    </li>
+    
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="open-search inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+        </svg>
+      </span>
+    </li>
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/thumbnail/silver-bullet.webp" class="rounded-lg shadow-sm w-full object-contain" />
+    
+    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      August 12, 2023
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">AWS CDKは銀の弾丸ではない</h1>
+    
+    <h5 class="text-sm flex items-center flex-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      投稿日 August 12, 2023
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      1分で読めます
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      73文字
+      
+        &nbsp;&bull;&nbsp;言語を選択: &nbsp;<a href="https://nmin11.github.io/kr/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="kr">Korean</a>、<a href="https://nmin11.github.io/en/blog/3-aws-cdk-is-not-a-silver-bullet/" lang="en">English</a>
+      
+    </h5>
+    
+
+    <details id="TableOfContents" class="px-4 mt-4 bg-gray-100 dark:bg-gray-700 rounded toc">
+    <summary class="flex items-center font-bold py-2 px-4 cursor-pointer justify-between select-none text-black dark:text-white">
+      <span>Table of contents</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <polyline points="6 9 12 15 18 9"></polyline>
+     </svg>
+    </summary>
+
+    <ul class="mt-2 pb-4">
+        
+
+        
+        <li>
+        <a href="#tldrnotion-ai%e3%81%8c%e6%9b%b8%e3%81%84%e3%81%a6%e3%81%8f%e3%82%8c%e3%81%9f%e6%96%87%e7%ab%a0">TL;DR（Notion AIが書いてくれた文章）</a>
+        
+
+        
+        </li><li>
+        <a href="#%e3%81%aa%e3%81%9c%e7%84%a1%e9%96%a2%e4%bf%82%e3%81%aacdk%e3%81%ab%e5%ab%8c%e6%b0%97%e3%81%8c%e3%81%95%e3%81%97%e3%81%9f%e3%81%ae%e3%81%8b">なぜ無関係なCDKに嫌気がさしたのか？</a>
+        
+
+        
+        </li><li>
+        <a href="#serverless-vs-sam-vs-cdk">Serverless vs SAM vs CDK</a>
+        
+
+        
+        <ul>
+            <li>
+        <a href="#serverless">Serverless</a>
+        
+
+        
+        </li><li>
+        <a href="#sam">SAM</a>
+        
+
+        
+        </li><li>
+        <a href="#cdk">CDK</a>
+        
+
+        
+        </li><li>
+        <a href="#%e3%81%be%e3%81%a8%e3%82%81">まとめ</a>
+        
+
+        
+        </li></ul>
+      </li><li>
+        <a href="#%e7%b5%90%e8%ab%96">結論</a>
+        </li></ul>
+  </details>
+
+    <h2 id="tldrnotion-aiが書いてくれた文章">TL;DR（Notion AIが書いてくれた文章）</h2>
+<blockquote>
+<p>AWS CDK（クラウド開発キット）はコード型インフラ（IaC）開発に広く使用されていますが、すべてのユースケースに適したソリューションではないことに注意が必要です。</p>
+<p>まず、多くのカスタマイズを必要としない小規模プロジェクトや簡単なインフラ設定には、AWS CDKが最善の選択ではないかもしれません。このような場合には、より簡単なIaCツールを使用するか、AWSコンソールで直接コードを書く方が効率的かもしれません。</p>
+<p>次に、AWS CDKはインフラ定義のための高レベルのオブジェクト指向抽象化を提供しますが、特定の状況では複雑さを増加させる可能性もあります。開発者はAWS CDKが提供する柔軟性と、それによって発生しうる追加の複雑さの間のトレードオフを慎重に考慮する必要があります。</p>
+<p>最後に、AWS CDKはまだ比較的新しいツールであり、急速に発展しています。大きく活発なコミュニティがありますが、まだ一部の特定のユースケースに必要なすべての機能やサポートが提供されていない可能性があります。</p>
+<p>全体的に、AWS CDKはインフラ開発のための強力なツールですが、すべてを満たすソリューションではありません。開発者は特定のユースケースとプロジェクト要件を慎重に考慮した後、AWS CDKまたは他のIaCツールを使用するかどうか決定する必要があります。</p></blockquote>
+<h2 id="なぜ無関係なcdkに嫌気がさしたのか">なぜ無関係なCDKに嫌気がさしたのか？</h2>
+<p>私は最近Go言語でCLIクローラーアプリケーションを作っている。
+最初は軽い気持ちで、<strong>No Server &amp; No DB</strong>環境のアプリケーションを作ろうとした。
+しかしchromedriverを私のCLIアプリケーション内で動作させるにはいくつかの難点があった。
+（<a href="https://loko1124.tistory.com/193#%ED%25--%AC%EB%25A-%25A-%EB%25-F%AC%25--%EA%25B-%AC%ED%25--%25--%EC%25-D%25B-%EB%25-D%BC%EB%25-A%25--%25--%EA%25B-%25--%EC%25-D%25--%25--%EC%25--%25-D%EA%25B-%25--%EB%25B-%25B-%EB%25-B%25A-%25--%EC%25--%25B-%EB%25A-%25A-%EC%25-B%25-C%EC%25--%25-C:~:text=%EC%9E%91%EB%8F%99%ED%95%B4%EC%A3%BC%EA%B8%B0%EB%A5%BC%20%EB%B0%94%EB%9D%BC%EB%8A%94%20%EB%B0%94%EC%9D%B4%EB%8B%A4.-,%ED%81%AC%EB%A1%A4%EB%9F%AC%20%EA%B5%AC%ED%98%84%EC%9D%B4%EB%9D%BC%EB%8A%94%20%EA%B2%83%EC%9D%80%20%EC%83%9D%EA%B0%81%EB%B3%B4%EB%8B%A4%20%EC%96%B4%EB%A0%A4%EC%9B%8C%EC%84%9C,-%EC%9A%94%EC%A6%98%20%ED%95%84%EC%9E%90%EB%8A%94%20%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A1%9C" target="_blank" rel="noopener">ここ</a>
+に少し整理しておいたが、CLIが完成したらその時また詳しく投稿するつもりだ）</p>
+<p>ユーザーのローカルPCでchromedriverを実行する代わりに、AWS Lambdaでchromedriverを実行する方法を探すことにした。
+そうしているうちに<a href="https://github.com/umihico/docker-selenium-lambda" target="_blank" rel="noopener">docker-selenium-lambda</a>
+で私が望むようにLambdaでchromedriverを実行できるように実装されていることを知った。
+しかし私は本当になぜか、Serverlessベースのこのリポジトリを参照してCDKベースのコードを書こうとした。
+各ツールの長所と短所は考慮もしなかった。
+ただ私が実際に会社でCDKを多く使っており、IaCを書くならCDKが常に正解だというありえない考えが根底にあったのだ。</p>
+<p>3日間、私のプロジェクトにCDKを適用しようとした時に直面した最大の問題はECRに関連するものだった。
+CDKではECRリポジトリを作成できない。 - <a href="https://stackoverflow.com/questions/67392204/aws-cdk-push-image-to-ecr" target="_blank" rel="noopener">関連リンク</a>
+
+そして思いもよらなかったServerlessがこの機能をうまくサポートしていたのだ。
+私はここでCDKがすべてを解決してくれる万能ツールではないことに気づいた。
+そして私がいかに無思考で馴染みのあるツールを使おうとしていたかに気づいた。</p>
+<h2 id="serverless-vs-sam-vs-cdk">Serverless vs SAM vs CDK</h2>
+<h3 id="serverless">Serverless</h3>
+<ul>
+<li>長い間使用されてきたのでコミュニティが大きい</li>
+<li>CloudFormationの複雑な部分を抽象化</li>
+<li>簡単にアプリをテストしてデプロイできるシンプルさ</li>
+<li>様々なプラグイン</li>
+<li>Serverless設定ファイルとCloudFormation設定ファイルの違いを区別するのが難しい場合がある</li>
+</ul>
+<h3 id="sam">SAM</h3>
+<ul>
+<li>Serverlessと同様にCloudFormationの複雑な層を簡素化</li>
+<li>ローカルテスト機能</li>
+<li>AWS build pipelineとの統合</li>
+<li>CDKとの組み合わせが可能</li>
+<li>複雑なインフラ構成をするには難しい場合がある</li>
+</ul>
+<h3 id="cdk">CDK</h3>
+<ul>
+<li>コンポーネントを構成して再利用するのに容易</li>
+<li>馴染みのあるプログラミング言語でインフラを定義</li>
+<li>複雑なインフラ構成をするのに容易</li>
+<li>サーバーレスに限らずAWSのすべてのサービスをサポート</li>
+<li>ローカルテストなど一部の詳細機能は他のサービスとの統合が必要</li>
+</ul>
+<h3 id="まとめ">まとめ</h3>
+<p>重要な違いといえば、ServerlessとSAMは文字通りServerlessのためのツールであり、CDKはAWSのすべてのサービスをサポートするIaCツールだという点だ。
+したがって私が作ろうとしているアプリケーションが複雑になればなるほど、CDKを使う方が有利だ。
+一方、私のアプリケーションの構造が複雑でない時はServerlessとSAMのどちらのツールを使うか悩むことになるが、実際私はこのような選択の分岐に立たされたらServerless側の軽くてシンプルな構造を多く使うことになりそうだ。</p>
+<p>また、フロントエンド中心のアプリケーションを作ろうとするならAmplifyを学んでみるのもいいだろう。</p>
+<h2 id="結論">結論</h2>
+<p>今回の機会に私がいかに考えなしに開発ツールを選択して使ってきたかに気づいた。
+ただ私が多く使ってきて馴染みのあるもの、そしてほぼ正解と見なされるソリューションを採用していたのだ。
+より良い開発者になるためには、プロジェクトにどのツールが適しており、これらをどう組み合わせたら良いシナジーを出せるか考えてみるべきだ。
+今後はサイドプロジェクトを作る時にも、私が実装しようとしているロジックにより適した方法を探して活用する習慣をつけなければならない。</p>
+
+<div class="px-2 mb-2">
+  
+  <script src="https://utteranc.es/client.js"
+    repo="nmin11/nmin11.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+  
+</div>
+</article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-4 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Contact me</div>
+      <p class="opacity-60">email: nmin1124@gmail.com</p>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+
+    <ul class="flex justify-center gap-x-3 flex-wrap gap-y-2">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="mailto:nmin1124@gmail.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="email"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+          </svg>
+        </a>
+      </li>
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://github.com/nmin11"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+            />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.linkedin.com/in/%EB%AF%BC-%EB%82%A8%EA%B6%81-5b1054265/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <line x1="8" y1="11" x2="8" y2="16" />
+            <line x1="8" y1="8" x2="8" y2="8.01" />
+            <line x1="12" y1="16" x2="12" y2="11" />
+            <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.instagram.com/nmin55/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-instagram"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a
+          href="https://www.youtube.com/channel/UCnZPXm6ka7f1iSEZsPZ7zCw"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+          class="p-1 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-youtube"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+    </ul>
+  </div>
+</div>
+
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2025 - Loko · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+<div class="search-ui absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 hidden">
+  <div class="container max-w-3xl mx-auto p-12">
+    <div class="relative">
+      <div class="my-4 text-center text-2xl font-bold">Search</div>
+
+      <span class="p-2 absolute right-0 top-0 cursor-pointer close-search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </span>
+    </div>
+
+    <input type="search" class="py-2 px-3 w-full dark:text-black border dark:border-transparent"
+      placeholder="検索キーワードを入力" />
+
+    <div class="search-results text-lg font-medium my-4 hidden">検索結果</div>
+    <ul class="search-list my-2">
+
+    </ul>
+
+    <div class="no-results text-center my-8 hidden">
+      <div class="text-xl font-semibold mb-2">検索結果がありません</div>
+      <p class="font-light text-sm">検索キーワードを変更してください</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script src="https://nmin11.github.io/js/scripts.min.js"></script>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE1FBNSDWV"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CE1FBNSDWV');
+        }
+      </script>
+
+
+<script>
+  const languageMenuButton = document.querySelector('.language-switcher');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  languageMenuButton.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    if (languageDropdown.classList.contains('hidden')) {
+      languageDropdown.classList.remove('hidden')
+      languageDropdown.classList.add('flex')
+    } else {
+      languageDropdown.classList.add('hidden');
+      languageDropdown.classList.remove('flex');
+    }
+  })
+</script>
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>
