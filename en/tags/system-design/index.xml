@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-Design on Loko</title>
+    <link>https://nmin11.github.io/en/tags/system-design/</link>
+    <description>Recent content in System-Design on Loko</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/en/tags/system-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s Learn About Time Series Databases</title>
+      <link>https://nmin11.github.io/en/blog/8-lets-learn-time-series-database/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/en/blog/8-lets-learn-time-series-database/</guid>
+      <description>&lt;p&gt;When designing large-scale architectures or building distributed systems, you may consider adopting a &lt;strong&gt;Time Series Database (TSDB)&lt;/strong&gt;. Today, let&amp;rsquo;s explore what TSDB is, what characteristics it has, and what problems it helps solve.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-what-is-time-series-data&#34;&gt;1. What is Time Series Data?&lt;/h2&gt;&#xA;&lt;p&gt;TSDB is a database that stores and processes time series data. So what is time series data? Time series data is not simply data with timestamps attached. More precisely, it can be defined as &lt;em&gt;&amp;ldquo;measurements or events that are tracked, monitored, downsampled, and aggregated over time&amp;rdquo;&lt;/em&gt;, and the &lt;strong&gt;measurements&lt;/strong&gt; or &lt;strong&gt;events&lt;/strong&gt; mentioned here can include:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

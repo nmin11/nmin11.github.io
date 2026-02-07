@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-Design on 로코</title>
+    <link>https://nmin11.github.io/kr/tags/system-design/</link>
+    <description>Recent content in System-Design on 로코</description>
+    <generator>Hugo</generator>
+    <language>kr</language>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmin11.github.io/kr/tags/system-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>시계열 DB에 대해 알아보자</title>
+      <link>https://nmin11.github.io/kr/blog/8-lets-learn-time-series-database/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/kr/blog/8-lets-learn-time-series-database/</guid>
+      <description>&lt;p&gt;대규모 아키텍처를 설계하거나, 분산형 시스템을 구축하려고 할 때 &lt;strong&gt;Time Series Database(TSDB)&lt;/strong&gt; 도입을 고려해볼 수 있다. 오늘은 TSDB가 어떤 도구인지, 어떤 특징들을 가지고 있으며, 또 어떤 문제들을 해결하는 데 도움을 주는지를 알아보고자 한다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-시계열-데이터란&#34;&gt;1. 시계열 데이터란?&lt;/h2&gt;&#xA;&lt;p&gt;TSDB는 시계열 데이터를 저장하고 처리하는 데이터베이스이다. 그렇다면 시계열 데이터란 무엇인가? 시계열 데이터는 단순히 타임스탬프가 달려 있는 데이터가 아니다. 더 정확하게는 &lt;em&gt;&amp;ldquo;시간에 따라 추적, 모니터링, 다운샘플링, 집계되는 측정값 또는 이벤트&amp;rdquo;&lt;/em&gt; 라고 정의할 수 있으며, 여기서 말하는 &lt;strong&gt;측정값&lt;/strong&gt; 또는 &lt;strong&gt;이벤트&lt;/strong&gt;에는 아래와 같은 것들이 포함될 수 있다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
