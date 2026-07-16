@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on Loko</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmin11.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Engineering</title>
+      <link>https://nmin11.github.io/en/blog/9-ai-engineering/</link>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmin11.github.io/en/blog/9-ai-engineering/</guid>
+      <description>&lt;h2 id=&#34;1-here-to-end-the-debate&#34;&gt;1. Here to End the Debate&lt;/h2&gt;&#xA;&lt;p&gt;If there&amp;rsquo;s one keyword that defines the current development landscape, it&amp;rsquo;s undeniably &lt;strong&gt;AI&lt;/strong&gt;. AI tools have become nearly indispensable for developers — something you simply can&amp;rsquo;t separate yourself from. I&amp;rsquo;ve become so accustomed to using Claude that I now rely on AI for coding practice, brainstorming blog ideas, planning side projects, and countless other tasks.&lt;/p&gt;&#xA;&lt;p&gt;Around that time, I happened to join a startup building an AI-powered chat service. Naturally, my curiosity expanded beyond backend engineering into a new territory: &lt;strong&gt;AI Engineering&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Let&#39;s Learn About Time Series Databases</title>
       <link>https://nmin11.github.io/en/blog/8-lets-learn-time-series-database/</link>
